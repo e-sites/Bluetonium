@@ -16,7 +16,7 @@ Bluetonium is a Swift Library that makes it easy to communicate with Bluetooth d
 
 ## Requirements
 
-- iOS 8.0+ / Mac OS X 10.9+
+- iOS 8.0+
 - Xcode 7.2+
 
 ## Installation
