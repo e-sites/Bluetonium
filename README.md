@@ -112,6 +112,7 @@ batteryServiceModel.readValue(withUUID: "2A19")
 
 // Or with completion
 batteryServiceModel.readValue(withUUID: "2A19") { (value) -> Void in
+batteryServiceModel.readValue(withUUID: "2A19") { value in
 	print(value)
 }
 ```
@@ -167,3 +168,4 @@ Feedback is appreciated and pull requests are always welcome. Let's make [this l
 ## License
 
 Bluetonium is released under the MIT license. See LICENSE for details.
+
