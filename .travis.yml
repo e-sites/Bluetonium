@@ -1,7 +1,3 @@
-before_install:
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
-
 language: swift
 osx_image: xcode7
 xcode_project: Example/BluetoniumExample.xcodeproj
