@@ -124,7 +124,7 @@ batteryServiceModel.writeValue(withUUID: "2A19")
 
 #### Custom DataTransformers
 
-It is possible that your characteristic has a custom data format or has a data format not yet supported. Than you can create your own custom DataTransformer for that property.
+It is possible that your characteristic has a custom data format or has a data format not yet supported. Then you can create your own custom DataTransformer for that property.
 
 The custom DataTransformer needs to conform to the `DataTransformer` protocol which has two functions.
 
