@@ -111,7 +111,6 @@ It's recommended to create a struct containing static properties of the UUID's a
 batteryServiceModel.readValue(withUUID: "2A19")
 
 // Or with completion
-batteryServiceModel.readValue(withUUID: "2A19") { (value) -> Void in
 batteryServiceModel.readValue(withUUID: "2A19") { value in
 	print(value)
 }
