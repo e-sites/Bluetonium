@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA3B9DBA1C3FAF4300D76256"
+               BlueprintIdentifier = "4E34C03B1C575899003D4740"
                BuildableName = "BluetoniumExample.app"
                BlueprintName = "BluetoniumExample"
-               ReferencedContainer = "container:BluetoniumExample.xcodeproj">
+               ReferencedContainer = "container:Bluetonium.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA3B9DBA1C3FAF4300D76256"
+            BlueprintIdentifier = "4E34C03B1C575899003D4740"
             BuildableName = "BluetoniumExample.app"
             BlueprintName = "BluetoniumExample"
-            ReferencedContainer = "container:BluetoniumExample.xcodeproj">
+            ReferencedContainer = "container:Bluetonium.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA3B9DBA1C3FAF4300D76256"
+            BlueprintIdentifier = "4E34C03B1C575899003D4740"
             BuildableName = "BluetoniumExample.app"
             BlueprintName = "BluetoniumExample"
-            ReferencedContainer = "container:BluetoniumExample.xcodeproj">
+            ReferencedContainer = "container:Bluetonium.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA3B9DBA1C3FAF4300D76256"
+            BlueprintIdentifier = "4E34C03B1C575899003D4740"
             BuildableName = "BluetoniumExample.app"
             BlueprintName = "BluetoniumExample"
-            ReferencedContainer = "container:BluetoniumExample.xcodeproj">
+            ReferencedContainer = "container:Bluetonium.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
