@@ -3,6 +3,6 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'BluetoniumExample' do
-pod 'Bluetonium', :path => '../'
+pod 'Bluetonium', :path => './'
 end
 
