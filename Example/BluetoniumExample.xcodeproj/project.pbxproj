@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		126255BA6834272A025C43F5 /* Pods_BluetoniumExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686129D4BBCDA94A50F587AC /* Pods_BluetoniumExample.framework */; };
-		C5B082372FB573B57F0A5CFF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD9F116F91913FFAD8B0F1A /* Pods.framework */; };
 		DA3B9DE21C3FAFC100D76256 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B9DD21C3FAFC100D76256 /* AppDelegate.swift */; };
 		DA3B9DE31C3FAFC100D76256 /* BatteryServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B9DD41C3FAFC100D76256 /* BatteryServiceModel.swift */; };
 		DA3B9DE41C3FAFC100D76256 /* HeartRateServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B9DD51C3FAFC100D76256 /* HeartRateServiceModel.swift */; };
@@ -17,13 +15,40 @@
 		DA3B9DE71C3FAFC100D76256 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B9DD91C3FAFC100D76256 /* DevicesViewController.swift */; };
 		DA3B9DE81C3FAFC100D76256 /* DevicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA3B9DDA1C3FAFC100D76256 /* DevicesViewController.xib */; };
 		DA3B9DE91C3FAFC100D76256 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3B9DDC1C3FAFC100D76256 /* Assets.xcassets */; };
-		DA3B9DEC1C3FAFC100D76256 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3B9DE11C3FAFC100D76256 /* Info.plist */; };
+		DAABFEB21C5BB19200239CAA /* Bluetonium.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAABFEB11C5BB18C00239CAA /* Bluetonium.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DAABFEB01C5BB18C00239CAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAABFEAC1C5BB18C00239CAA /* Bluetonium.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DA907BAF1C5766FC00D9487F;
+			remoteInfo = "Bluetonium-iOS";
+		};
+		DAABFEB31C5BB19700239CAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAABFEAC1C5BB18C00239CAA /* Bluetonium.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DA907BAE1C5766FC00D9487F;
+			remoteInfo = "Bluetonium-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DAABFEAA1C5BB12C00239CAA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DAABFEB21C5BB19200239CAA /* Bluetonium.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		686129D4BBCDA94A50F587AC /* Pods_BluetoniumExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluetoniumExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AD9F116F91913FFAD8B0F1A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9F4A48C798EFDA48265CF19 /* Pods-BluetoniumExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoniumExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoniumExample/Pods-BluetoniumExample.release.xcconfig"; sourceTree = "<group>"; };
 		DA3B9DBB1C3FAF4300D76256 /* BluetoniumExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoniumExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3B9DD21C3FAFC100D76256 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B9DD41C3FAFC100D76256 /* BatteryServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryServiceModel.swift; sourceTree = "<group>"; };
@@ -34,7 +59,7 @@
 		DA3B9DDA1C3FAFC100D76256 /* DevicesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DevicesViewController.xib; sourceTree = "<group>"; };
 		DA3B9DDC1C3FAFC100D76256 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA3B9DE11C3FAFC100D76256 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEF19FB2C87E0EE598522902 /* Pods-BluetoniumExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoniumExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoniumExample/Pods-BluetoniumExample.debug.xcconfig"; sourceTree = "<group>"; };
+		DAABFEAC1C5BB18C00239CAA /* Bluetonium.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bluetonium.xcodeproj; path = ../Bluetonium.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,39 +67,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				126255BA6834272A025C43F5 /* Pods_BluetoniumExample.framework in Frameworks */,
-				C5B082372FB573B57F0A5CFF /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0209C20D730C6A091D8E319D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EEF19FB2C87E0EE598522902 /* Pods-BluetoniumExample.debug.xcconfig */,
-				D9F4A48C798EFDA48265CF19 /* Pods-BluetoniumExample.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		99320AD575EA3F212FE420AC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				686129D4BBCDA94A50F587AC /* Pods_BluetoniumExample.framework */,
-				8AD9F116F91913FFAD8B0F1A /* Pods.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		DA3B9DB21C3FAF4300D76256 = {
 			isa = PBXGroup;
 			children = (
 				DA3B9DBD1C3FAF4300D76256 /* BluetoniumExample */,
 				DA3B9DBC1C3FAF4300D76256 /* Products */,
-				0209C20D730C6A091D8E319D /* Pods */,
-				99320AD575EA3F212FE420AC /* Frameworks */,
+				DAABFEAC1C5BB18C00239CAA /* Bluetonium.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +146,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		DAABFEAD1C5BB18C00239CAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAABFEB11C5BB18C00239CAA /* Bluetonium.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,16 +161,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA3B9DCD1C3FAF4300D76256 /* Build configuration list for PBXNativeTarget "BluetoniumExample" */;
 			buildPhases = (
-				1DFC9C19A7FA4857678F7850 /* Check Pods Manifest.lock */,
 				DA3B9DB71C3FAF4300D76256 /* Sources */,
 				DA3B9DB81C3FAF4300D76256 /* Frameworks */,
 				DA3B9DB91C3FAF4300D76256 /* Resources */,
-				DA695DA37F4AD6A97057BDCB /* Embed Pods Frameworks */,
-				4B3513FC3082141ABD30A08E /* Copy Pods Resources */,
+				DAABFEAA1C5BB12C00239CAA /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DAABFEB41C5BB19700239CAA /* PBXTargetDependency */,
 			);
 			name = BluetoniumExample;
 			productName = BluetoniumExample;
@@ -191,6 +202,12 @@
 			mainGroup = DA3B9DB21C3FAF4300D76256;
 			productRefGroup = DA3B9DBC1C3FAF4300D76256 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DAABFEAD1C5BB18C00239CAA /* Products */;
+					ProjectRef = DAABFEAC1C5BB18C00239CAA /* Bluetonium.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DA3B9DBA1C3FAF4300D76256 /* BluetoniumExample */,
@@ -198,67 +215,28 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		DAABFEB11C5BB18C00239CAA /* Bluetonium.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bluetonium.framework;
+			remoteRef = DAABFEB01C5BB18C00239CAA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		DA3B9DB91C3FAF4300D76256 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DA3B9DE81C3FAFC100D76256 /* DevicesViewController.xib in Resources */,
-				DA3B9DEC1C3FAFC100D76256 /* Info.plist in Resources */,
 				DA3B9DE91C3FAFC100D76256 /* Assets.xcassets in Resources */,
 				DA3B9DE61C3FAFC100D76256 /* ConnectedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1DFC9C19A7FA4857678F7850 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		4B3513FC3082141ABD30A08E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluetoniumExample/Pods-BluetoniumExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DA695DA37F4AD6A97057BDCB /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA3B9DB71C3FAF4300D76256 /* Sources */ = {
@@ -274,6 +252,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAABFEB41C5BB19700239CAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Bluetonium-iOS";
+			targetProxy = DAABFEB31C5BB19700239CAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DA3B9DCB1C3FAF4300D76256 /* Debug */ = {
@@ -339,7 +325,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -359,7 +344,6 @@
 		};
 		DA3B9DCE1C3FAF4300D76256 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEF19FB2C87E0EE598522902 /* Pods-BluetoniumExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/BluetoniumExample/Resources/Info.plist";
@@ -372,7 +356,6 @@
 		};
 		DA3B9DCF1C3FAF4300D76256 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9F4A48C798EFDA48265CF19 /* Pods-BluetoniumExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/BluetoniumExample/Resources/Info.plist";

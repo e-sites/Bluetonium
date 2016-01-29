@@ -1,7 +1,7 @@
-.svn
-Pods
-
+# Mac OS X
 .DS_Store
+
+# Xcode
 build/
 *.pbxuser
 !default.pbxuser
@@ -18,6 +18,9 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-lcov/
-*.xcworkspace
-Podfile.lock
+
+# SPM
+.build/
+
+# Carthage
+Carthage/Build
