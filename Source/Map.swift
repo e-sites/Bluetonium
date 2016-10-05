@@ -10,14 +10,14 @@ import Foundation
 
 
 public protocol MapValue {}
-extension NSData: MapValue {}
+extension Data: MapValue {}
 extension String: MapValue {}
 extension UInt8: MapValue {}
 extension UInt16: MapValue {}
 extension UInt32: MapValue {}
 
 
-public class Map {
+open class Map {
     internal var setMapUUID: String?
     internal var setMapValue: MapValue?
     internal var getMapUUID: String?
@@ -25,7 +25,7 @@ public class Map {
     internal var currentMapUUID = ""
     internal weak var serviceModel: ServiceModel?
     
-    public subscript(UUID: String) -> Map {
+    open subscript(UUID: String) -> Map {
         currentMapUUID = UUID
         
         return self
@@ -34,7 +34,7 @@ public class Map {
     /**
      Function will be for every mapped value
      */
-    internal func map<T:MapValue>(inout field: T, _ key: String, _ transformer: DataTransformer? = nil) {
+    internal func map<T:MapValue>(_ field: inout T, _ key: String, _ transformer: DataTransformer? = nil) {
         // Register UUID and type of the field in service model.
         serviceModel?.register(withUUID: currentMapUUID, valueType: valueTypeOfField(&field), transformer: transformer)
         
@@ -56,19 +56,19 @@ public class Map {
 
      - return: The type of the property.
      */
-    private func valueTypeOfField<T:MapValue>(inout field: T) -> Any.Type {
+    fileprivate func valueTypeOfField<T:MapValue>(_ field: inout T) -> Any.Type {
         return Mirror(reflecting: field).subjectType
     }
 }
 
 
-infix operator <- {}
+infix operator <-
 
-public func <- <T:MapValue>(inout lhs: T, rhs: Map) {
+public func <- <T:MapValue>(lhs: inout T, rhs: Map) {
     rhs.map(&lhs, rhs.currentMapUUID)
 }
 
-public func <- <T:MapValue>(inout lhs: T, rhs: (Map, DataTransformer)) {
+public func <- <T:MapValue>(lhs: inout T, rhs: (Map, DataTransformer)) {
     let (map, transformer) = rhs
     map.map(&lhs, map.currentMapUUID, transformer)
 }

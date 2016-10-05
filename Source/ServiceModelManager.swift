@@ -11,8 +11,8 @@ import CoreBluetooth
 
 internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
     
-    private weak var peripheral: CBPeripheral?
-    private(set) internal var registeredServiceModels: [ServiceModel]
+    fileprivate weak var peripheral: CBPeripheral?
+    fileprivate(set) internal var registeredServiceModels: [ServiceModel]
     
     // MARK: Initializers
     
@@ -44,7 +44,7 @@ internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
         
      - parameter serviceModel: The BTServiceModel to register.
      */
-    internal func registerServiceModel(serviceModel: ServiceModel) {
+    internal func registerServiceModel(_ serviceModel: ServiceModel) {
         if !registeredServiceModels.contains(serviceModel) {
             registeredServiceModels.append(serviceModel)
             serviceModel.serviceModelManager = self
@@ -59,7 +59,7 @@ internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
      
      - returns: True if the `CBCharacteristic` is available.
      */
-    internal func characteristicAvailable(characteristicUUID: String, serviceUUID: String) -> Bool {
+    internal func characteristicAvailable(_ characteristicUUID: String, serviceUUID: String) -> Bool {
         return characteristic(characteristicUUID, serviceUUID: serviceUUID) != nil
     }
     
@@ -69,9 +69,9 @@ internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
      - parameter characteristicUUID: The UUID of the characteristic.
      - parameter serviceUUID: The UUID of the service.
      */
-    internal func readValue(characteristicUUID: String, serviceUUID: String) {
+    internal func readValue(_ characteristicUUID: String, serviceUUID: String) {
         if let characteristic = characteristic(characteristicUUID, serviceUUID: serviceUUID) {
-            peripheral?.readValueForCharacteristic(characteristic)
+            peripheral?.readValue(for: characteristic)
         }
     }
     
@@ -82,9 +82,9 @@ internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
      - parameter characteristicUUID: The UUID of the characteristic.
      - parameter serviceUUID: The UUID of the service.
      */
-    internal func writeValue(value: NSData, toCharacteristicUUID characteristicUUID: String, serviceUUID: String, response: Bool) {
+    internal func writeValue(_ value: Data, toCharacteristicUUID characteristicUUID: String, serviceUUID: String, response: Bool) {
         if let characteristic = characteristic(characteristicUUID, serviceUUID: serviceUUID) {
-            peripheral?.writeValue(value, forCharacteristic: characteristic, type: response ? .WithResponse : .WithoutResponse)
+            peripheral?.writeValue(value, for: characteristic, type: response ? .withResponse : .withoutResponse)
         }
     }
     
@@ -106,7 +106,7 @@ internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
         
      - returns: Returns a registered `BTServiceModel` subclass if found.
      */
-    private func serviceModel(withUUID UUID: String) -> ServiceModel? {
+    fileprivate func serviceModel(withUUID UUID: String) -> ServiceModel? {
         return registeredServiceModels.filter { $0.serviceUUID() == UUID }.first
     }
     
@@ -118,7 +118,7 @@ internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
      
      - returns: A `CBCharacteristic` if found, nil if nothing found.
      */
-    private func characteristic(characteristicUUID: String, serviceUUID: String) -> CBCharacteristic? {
+    fileprivate func characteristic(_ characteristicUUID: String, serviceUUID: String) -> CBCharacteristic? {
         guard let service = service(withServiceUUID: serviceUUID) else {
             return nil
         }
@@ -127,7 +127,7 @@ internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
             return nil
         }
         
-        return characteristics.filter { $0.UUID.UUIDString == characteristicUUID }.first
+        return characteristics.filter { $0.uuid.uuidString == characteristicUUID }.first
     }
     
     /**
@@ -137,57 +137,57 @@ internal class ServiceModelManager: NSObject, CBPeripheralDelegate {
      
      - returns: A `CBService` if found, nil if nothing found.
      */
-    private func service(withServiceUUID serviceUUID: String) -> CBService? {
+    fileprivate func service(withServiceUUID serviceUUID: String) -> CBService? {
         guard let services = peripheral?.services else {
             return nil
         }
-        return services.filter { $0.UUID.UUIDString == serviceUUID }.first
+        return services.filter { $0.uuid.uuidString == serviceUUID }.first
     }
     
     // MARK: CBPeripheralDelegate
     
-    @objc internal func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+    @objc internal func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else {
             return
         }
         
         for service in services {
-            guard let serviceModel = serviceModel(withUUID: service.UUID.UUIDString) else {
+            guard let serviceModel = serviceModel(withUUID: service.uuid.uuidString) else {
                 continue
             }
             // Perform discover characteristics only for registered characteristics.
             let characteristics = serviceModel.characteristicUUIDs.CBUUIDs()
             serviceModel.serviceAvailable = true
-            peripheral.discoverCharacteristics(characteristics, forService: service)
+            peripheral.discoverCharacteristics(characteristics, for: service)
         }
     }
     
-    @objc internal func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
-        guard let serviceModel = serviceModel(withUUID: service.UUID.UUIDString), let characteristics = service.characteristics else {
+    @objc internal func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        guard let serviceModel = serviceModel(withUUID: service.uuid.uuidString), let characteristics = service.characteristics else {
             return
         }
         
         for characteristic in characteristics {
             // Check with correct ServiceModel if it should register for value changes.
-            if serviceModel.registerNotifyForCharacteristic(withUUID: characteristic.UUID.UUIDString) {
-                peripheral.setNotifyValue(true, forCharacteristic: characteristic)
+            if serviceModel.registerNotifyForCharacteristic(withUUID: characteristic.uuid.uuidString) {
+                peripheral.setNotifyValue(true, for: characteristic)
             }
             
             // Notify ServiceModel the characteristic did become available.
-            serviceModel.characteristicAvailable(withUUID: characteristic.UUID.UUIDString)
+            serviceModel.characteristicAvailable(withUUID: characteristic.uuid.uuidString)
         }
     }
     
-    @objc internal func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
-        guard let serviceModel = serviceModel(withUUID: characteristic.service.UUID.UUIDString) else {
+    @objc internal func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        guard let serviceModel = serviceModel(withUUID: characteristic.service.uuid.uuidString) else {
             return
         }
         
         // Update the value of the changed characteristic.
-        serviceModel.didRead(characteristic.value, withUUID: characteristic.UUID.UUIDString)
+        serviceModel.didRead(characteristic.value, withUUID: characteristic.uuid.uuidString)
     }
     
-    @objc internal func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+    @objc internal func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         print("didWrite")
     }
     

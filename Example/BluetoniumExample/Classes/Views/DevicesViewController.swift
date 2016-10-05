@@ -24,14 +24,14 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scanButton = UIBarButtonItem(title: "Start", style: .Plain, target: self, action: Selector("toggleScan"))
+        scanButton = UIBarButtonItem(title: "Start", style: .plain, target: self, action: #selector(DevicesViewController.toggleScan))
         
         title = "Devices"
         navigationItem.rightBarButtonItem = scanButton
-        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "DeviceCell")
+        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "DeviceCell")
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         scanButtonTitle("Start")
         btManager.stopScanForDevices()
     }
@@ -39,29 +39,29 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
     
     // MARK: BTManagerDelegate
     
-    func manager(manager: Manager, didFindDevice device: Device) {
+    func manager(_ manager: Manager, didFindDevice device: Device) {
         tableView!.reloadData()
     }
     
-    func manager(manager: Manager, willConnectToDevice device: Device) {
+    func manager(_ manager: Manager, willConnectToDevice device: Device) {
         presentConnectedViewWithDevice(device)
     }
     
-    func manager(manager: Manager, connectedToDevice device: Device) {
+    func manager(_ manager: Manager, connectedToDevice device: Device) {
     }
     
     
-    func manager(manager: Manager, disconnectedFromDevice device: Device, retry: Bool) {
+    func manager(_ manager: Manager, disconnectedFromDevice device: Device, retry: Bool) {
     }
     
     // MARK: UITableViewDatasource
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return btManager.foundDevices.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("DeviceCell")!
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell")!
         let device = btManager.foundDevices[indexPath.row]
         
         var text = "⛄️ No name"
@@ -69,13 +69,13 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
             text = name
         }
         cell.textLabel!.text = text
-        cell.textLabel?.font = (device.peripheral.state == .Connected) ? UIFont.boldSystemFontOfSize(14) : UIFont.systemFontOfSize(14)
+        cell.textLabel?.font = (device.peripheral.state == .connected) ? UIFont.boldSystemFont(ofSize: 14) : UIFont.systemFont(ofSize: 14)
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         let device = btManager.foundDevices[indexPath.row]
         presentConnectedViewWithDevice(device)
@@ -94,17 +94,17 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
         }
     }
     
-    func scanButtonTitle(title: String) {
+    func scanButtonTitle(_ title: String) {
         scanButton?.title = title
     }
     
-    func presentConnectedViewWithDevice(device: Device) {
+    func presentConnectedViewWithDevice(_ device: Device) {
         device.registerServiceModel(batteryServiceModel)
         device.registerServiceModel(heartRateServiceModel)
         
-        let vc = ConnectedViewController(nibName: "ConnectedViewController", bundle: NSBundle.mainBundle())
+        let vc = ConnectedViewController(nibName: "ConnectedViewController", bundle: Bundle.main)
         vc.btManager = btManager
-        presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+        present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
 }
