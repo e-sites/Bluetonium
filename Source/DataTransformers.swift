@@ -17,13 +17,13 @@ public protocol DataTransformer {
      Function used when reading from the characteristic.
      Transform NSData to the Value
     */
-    func transform(dataToValue data: NSData?) -> MapValue
+    func transform(dataToValue data: Data?) -> MapValue
     
     /**
      Function used when writing to the characteristic.
      Transform the Value to NSData
      */
-    func transform(valueToData value: MapValue?) -> NSData
+    func transform(valueToData value: MapValue?) -> Data
 }
 
 /**
@@ -31,19 +31,19 @@ public protocol DataTransformer {
 */
 internal class NSDataDataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         if let data = data {
-            return data
+            return data as MapValue
         } else {
-            return NSData()
+            return Data() as MapValue
         }
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
-        if let value = value as? NSData {
+    func transform(valueToData value: MapValue?) -> Data {
+        if let value = value as? Data {
             return value
         }
-        return NSData()
+        return Data()
     }
     
 }
@@ -53,22 +53,22 @@ internal class NSDataDataTransformer: DataTransformer {
  */
 internal class StringDataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         if let data = data {
-            if let string = String(data: data, encoding: NSUTF8StringEncoding) {
+            if let string = String(data: data, encoding: String.Encoding.utf8) {
                 return string
             }
         }
         return String()
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
         if let value = value as? String {
-            if let data = value.dataUsingEncoding(NSUTF8StringEncoding) {
+            if let data = value.data(using: String.Encoding.utf8) {
                 return data
             }
         }
-        return NSData()
+        return Data()
     }
     
 }
@@ -78,20 +78,20 @@ internal class StringDataTransformer: DataTransformer {
  */
 internal class UInt8DataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         guard let data = data else {
             return UInt8()
         }
         var value = UInt8()
-        data.getBytes(&value, length: sizeof(UInt8))
+        (data as NSData).getBytes(&value, length: MemoryLayout<UInt8>.size)
         return value
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt8 else {
-            return NSData()
+            return Data()
         }
-        return NSData(bytes: &value, length: sizeof(UInt8))
+        return Data(bytes: &value, count: MemoryLayout<UInt8>.size)
     }
     
 }
@@ -101,20 +101,20 @@ internal class UInt8DataTransformer: DataTransformer {
  */
 internal class UInt16DataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         guard let data = data else {
             return UInt16()
         }
         var value = UInt16()
-        data.getBytes(&value, length: sizeof(UInt16))
+        (data as NSData).getBytes(&value, length: MemoryLayout<UInt16>.size)
         return value
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt16 else {
-            return NSData()
+            return Data()
         }
-        return NSData(bytes: &value, length: sizeof(UInt16))
+        return Data(bytes: &value, count: MemoryLayout<UInt16>.size)
     }
     
 }
@@ -124,20 +124,20 @@ internal class UInt16DataTransformer: DataTransformer {
  */
 internal class UInt32DataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         guard let data = data else {
             return UInt32()
         }
         var value = UInt32()
-        data.getBytes(&value, length: sizeof(UInt32))
+        (data as NSData).getBytes(&value, length: MemoryLayout<UInt32>.size)
         return value
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt32 else {
-            return NSData()
+            return Data()
         }
-        return NSData(bytes: &value, length: sizeof(UInt32))
+        return Data(bytes: &value, count: MemoryLayout<UInt32>.size)
     }
     
 }
