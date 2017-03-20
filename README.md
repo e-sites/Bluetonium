@@ -55,7 +55,7 @@ manager.delegate = self
 manager.startScanForDevices()
 ```
 
-If a device is found you will get notified by the `func manager(manager: Manager, didFindDevice device: Device)` delegate call. You can also get all found devices in the `foundDevices` array of your manager.
+If a device is found you will get notified by the `func manager(_ manager: Manager, didFindDevice device: Device)` delegate call. You can also get all found devices in the `foundDevices` array of your manager.
 
 ### Connect to a device
 
