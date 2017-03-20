@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.authors  = { 'Dick Verbunt' => 'dick@e-sites.nl', 'Dominggus Salampessy' => 'dominggus@e-sites.nl', 'Bas van Kuijck' => 'bas@e-sites.nl' }
   s.homepage = 'http://www.e-sites.nl'
   s.source   = { :git => 'https://github.com/e-sites/Bluetonium.git', :tag => "#{s.version}" }
-  s.source_files = 'Source/*.swift'
+  s.source_files = 'Source/**/*.swift'
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
 end
