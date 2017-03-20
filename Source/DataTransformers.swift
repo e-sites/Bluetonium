@@ -9,14 +9,14 @@
 import Foundation
 
 /**
-    Protocol that should be used when writing your own DataTransformer.
-*/
+ Protocol that should be used when writing your own DataTransformer.
+ */
 public protocol DataTransformer {
     
     /**
      Function used when reading from the characteristic.
      Transform Data to the Value
-    */
+     */
     func transform(dataToValue data: Data?) -> MapValue
     
     /**
@@ -29,7 +29,7 @@ public protocol DataTransformer {
 
 /**
  Default transformer from Data to Data and back.
-*/
+ */
 class DataDataTransformer: DataTransformer {
     
     func transform(dataToValue data: Data?) -> MapValue {
@@ -37,10 +37,10 @@ class DataDataTransformer: DataTransformer {
     }
     
     func transform(valueToData value: MapValue?) -> Data {
-        if let value = value as? Data {
-            return value
+        guard let value = value as? Data else {
+            return Data()
         }
-        return Data()
+        return value
     }
     
 }
@@ -51,92 +51,40 @@ class DataDataTransformer: DataTransformer {
 class StringDataTransformer: DataTransformer {
     
     func transform(dataToValue data: Data?) -> MapValue {
-        if let data = data {
-            if let string = String(data: data, encoding: String.Encoding.utf8) {
-                return string
-            }
+        guard let data = data,
+            let string = String(data: data, encoding: String.Encoding.utf8) else {
+                return String()
         }
-        return String()
+        return string
     }
     
     func transform(valueToData value: MapValue?) -> Data {
-        if let value = value as? String {
-            if let data = value.data(using: String.Encoding.utf8) {
-                return data
-            }
+        guard let value = value as? String,
+            let data = value.data(using: .utf8) else {
+                return Data()
         }
-        return Data()
+        return data
     }
     
 }
 
 /**
- Default transformer from Data to UInt8 and back.
+ UInt transformer from Data to String and back.
  */
-class UInt8DataTransformer: DataTransformer {
-    
+class UIntDataTransformer<T:MapValue> : DataTransformer where T:UnsignedInteger {
     func transform(dataToValue data: Data?) -> MapValue {
         guard let data = data else {
-            return UInt8()
+            return T()
         }
-        var value = UInt8()
-        (data as NSData).getBytes(&value, length: MemoryLayout<UInt8>.size)
+        var value = T()
+        (data as NSData).getBytes(&value, length: MemoryLayout<T>.size)
         return value
     }
     
     func transform(valueToData value: MapValue?) -> Data {
-        guard var value = value as? UInt8 else {
+        guard var value = value as? T else {
             return Data()
         }
         return Data(bytes: &value, count: MemoryLayout<UInt8>.size)
     }
-    
-}
-
-/**
- Default transformer from Data to UInt16 and back.
- */
-class UInt16DataTransformer: DataTransformer {
-    
-    func transform(dataToValue data: Data?) -> MapValue {
-        guard let data = data else {
-            return UInt16()
-        }
-        
-        var value = UInt16()
-        (data as NSData).getBytes(&value, length: MemoryLayout<UInt8>.size)
-        return value
-    }
-    
-    func transform(valueToData value: MapValue?) -> Data {
-        guard var value = value as? UInt16 else {
-            return Data()
-        }
-        return Data(bytes: &value, count: MemoryLayout<UInt16>.size)
-    }
-    
-}
-
-/**
- Default transformer from Data to UInt32 and back.
- */
-class UInt32DataTransformer: DataTransformer {
-    
-    func transform(dataToValue data: Data?) -> MapValue {
-        guard let data = data else {
-            return UInt32()
-        }
-        
-        var value = UInt32()
-        (data as NSData).getBytes(&value, length: MemoryLayout<UInt8>.size)
-        return value
-    }
-    
-    func transform(valueToData value: MapValue?) -> Data {
-        guard var value = value as? UInt32 else {
-            return Data()
-        }
-        return Data(bytes: &value, count: MemoryLayout<UInt32>.size)
-    }
-    
 }

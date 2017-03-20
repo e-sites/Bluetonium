@@ -69,7 +69,7 @@ class ConnectedViewController :  UIViewController, ManagerDelegate, HeartRateSer
         self.title = "Connected!"
     }
     
-    func manager(_ manager: Manager, disconnectedFromDevice device: Device, retry: Bool) {
+    func manager(_ manager: Manager, disconnectedFromDevice device: Device, willRetry retry: Bool) {
         if !retry {
             self.dismiss(animated: true, completion: nil)
         } else {

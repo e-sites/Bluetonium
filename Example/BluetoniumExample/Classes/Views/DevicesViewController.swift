@@ -51,7 +51,7 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
     }
     
     
-    func manager(_ manager: Manager, disconnectedFromDevice device: Device, retry: Bool) {
+    func manager(_ manager: Manager, disconnectedFromDevice device: Device, willRetry retry: Bool) {
     }
     
     // MARK: UITableViewDatasource
@@ -68,7 +68,7 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
         if let name = device.peripheral.name {
             text = name
         }
-        cell.textLabel!.text = text
+        cell.textLabel?.text = text
         cell.textLabel?.font = (device.peripheral.state == .connected) ? UIFont.boldSystemFont(ofSize: 14) : UIFont.systemFont(ofSize: 14)
         
         return cell

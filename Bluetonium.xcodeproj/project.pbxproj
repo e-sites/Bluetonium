@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C394E08A1E802C6100627974 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E0851E802C6100627974 /* Manager.swift */; };
+		C394E08B1E802C6100627974 /* ServiceModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E0861E802C6100627974 /* ServiceModelManager.swift */; };
+		C394E08C1E802C6100627974 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E0881E802C6100627974 /* Device.swift */; };
+		C394E08D1E802C6100627974 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E0891E802C6100627974 /* ServiceModel.swift */; };
+		C394E08F1E802C7B00627974 /* ManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E08E1E802C7B00627974 /* ManagerDelegate.swift */; };
 		DAABFE8C1C5BAEC200239CAA /* DataTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABFE841C5BAEC200239CAA /* DataTransformers.swift */; };
-		DAABFE8D1C5BAEC200239CAA /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABFE851C5BAEC200239CAA /* Device.swift */; };
-		DAABFE8F1C5BAEC200239CAA /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABFE871C5BAEC200239CAA /* Manager.swift */; };
 		DAABFE901C5BAEC200239CAA /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABFE881C5BAEC200239CAA /* Map.swift */; };
-		DAABFE911C5BAEC200239CAA /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABFE891C5BAEC200239CAA /* ServiceModel.swift */; };
-		DAABFE921C5BAEC200239CAA /* ServiceModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABFE8A1C5BAEC200239CAA /* ServiceModelManager.swift */; };
 		DAABFE951C5BAF8700239CAA /* Bluetonium.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABFE831C5BAEC200239CAA /* Bluetonium.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C394E0851E802C6100627974 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		C394E0861E802C6100627974 /* ServiceModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModelManager.swift; sourceTree = "<group>"; };
+		C394E0881E802C6100627974 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		C394E0891E802C6100627974 /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		C394E08E1E802C7B00627974 /* ManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerDelegate.swift; sourceTree = "<group>"; };
 		DA907BAF1C5766FC00D9487F /* Bluetonium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluetonium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAABFE831C5BAEC200239CAA /* Bluetonium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bluetonium.h; path = Source/Bluetonium.h; sourceTree = SOURCE_ROOT; };
 		DAABFE841C5BAEC200239CAA /* DataTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataTransformers.swift; path = Source/DataTransformers.swift; sourceTree = SOURCE_ROOT; };
-		DAABFE851C5BAEC200239CAA /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Source/Device.swift; sourceTree = SOURCE_ROOT; };
 		DAABFE861C5BAEC200239CAA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
-		DAABFE871C5BAEC200239CAA /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = SOURCE_ROOT; };
 		DAABFE881C5BAEC200239CAA /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Map.swift; path = Source/Map.swift; sourceTree = SOURCE_ROOT; };
-		DAABFE891C5BAEC200239CAA /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceModel.swift; path = Source/ServiceModel.swift; sourceTree = SOURCE_ROOT; };
-		DAABFE8A1C5BAEC200239CAA /* ServiceModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceModelManager.swift; path = Source/ServiceModelManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C394E0841E802C6100627974 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C394E08E1E802C7B00627974 /* ManagerDelegate.swift */,
+				C394E0851E802C6100627974 /* Manager.swift */,
+				C394E0861E802C6100627974 /* ServiceModelManager.swift */,
+			);
+			name = Managers;
+			path = Source/Managers;
+			sourceTree = SOURCE_ROOT;
+		};
+		C394E0871E802C6100627974 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C394E0881E802C6100627974 /* Device.swift */,
+				C394E0891E802C6100627974 /* ServiceModel.swift */,
+			);
+			name = Models;
+			path = Source/Models;
+			sourceTree = SOURCE_ROOT;
+		};
 		DA907BA51C5766FC00D9487F = {
 			isa = PBXGroup;
 			children = (
@@ -67,12 +90,10 @@
 		DAABFE931C5BAECA00239CAA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C394E0841E802C6100627974 /* Managers */,
+				C394E0871E802C6100627974 /* Models */,
 				DAABFE841C5BAEC200239CAA /* DataTransformers.swift */,
-				DAABFE851C5BAEC200239CAA /* Device.swift */,
-				DAABFE871C5BAEC200239CAA /* Manager.swift */,
 				DAABFE881C5BAEC200239CAA /* Map.swift */,
-				DAABFE891C5BAEC200239CAA /* ServiceModel.swift */,
-				DAABFE8A1C5BAEC200239CAA /* ServiceModelManager.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -165,12 +186,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAABFE911C5BAEC200239CAA /* ServiceModel.swift in Sources */,
+				C394E08B1E802C6100627974 /* ServiceModelManager.swift in Sources */,
+				C394E08F1E802C7B00627974 /* ManagerDelegate.swift in Sources */,
 				DAABFE8C1C5BAEC200239CAA /* DataTransformers.swift in Sources */,
-				DAABFE8F1C5BAEC200239CAA /* Manager.swift in Sources */,
-				DAABFE921C5BAEC200239CAA /* ServiceModelManager.swift in Sources */,
+				C394E08C1E802C6100627974 /* Device.swift in Sources */,
+				C394E08D1E802C6100627974 /* ServiceModel.swift in Sources */,
 				DAABFE901C5BAEC200239CAA /* Map.swift in Sources */,
-				DAABFE8D1C5BAEC200239CAA /* Device.swift in Sources */,
+				C394E08A1E802C6100627974 /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

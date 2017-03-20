@@ -10,13 +10,6 @@ import Foundation
 import CoreBluetooth
 
 /**
- Equatable support.
- */
-public func ==(lhs: Device, rhs: Device) -> Bool {
-    return lhs.peripheral.identifier == rhs.peripheral.identifier
-}
-
-/**
  A `Device` will represent a CBPeripheral.
  When registering ServiceModels on this device it will automaticly map the characteristics to the correct value.
 */
@@ -24,12 +17,12 @@ open class Device: Equatable {
     
     // An array of all registered `ServiceModel` subclasses
     open var registedServiceModels: [ServiceModel] {
-        get {
-            return serviceModelManager.registeredServiceModels
-        }
+        return serviceModelManager.registeredServiceModels
     }
+    
     // The peripheral it represents.
     private(set) open var peripheral: CBPeripheral
+    
     // The ServiceModelManager that will manage all registered `ServiceModels`
     private(set) var serviceModelManager: ServiceModelManager
     
@@ -42,7 +35,7 @@ open class Device: Equatable {
      */
     public init(peripheral: CBPeripheral) {
         self.peripheral = peripheral
-        self.serviceModelManager = ServiceModelManager(withPeripheral: peripheral)
+        self.serviceModelManager = ServiceModelManager(peripheral: peripheral)
     }
     
     // MARK: Public functions
@@ -68,4 +61,10 @@ open class Device: Equatable {
         peripheral.delegate = serviceModelManager
     }
     
+    /**
+     Equatable support.
+     */
+    public static func == (lhs: Device, rhs: Device) -> Bool {
+        return lhs.peripheral.identifier == rhs.peripheral.identifier
+    }
 }

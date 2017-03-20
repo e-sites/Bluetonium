@@ -16,7 +16,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
     
     // MARK: Initializers
     
-    init(withPeripheral peripheral: CBPeripheral) {
+    init(peripheral: CBPeripheral) {
         self.registeredServiceModels = []
         self.peripheral = peripheral
         super.init()
@@ -31,9 +31,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
             return
         }
         
-        let UUIDs = registeredServiceModels.map { (serviceModel) -> CBUUID in
-            return CBUUID(string: serviceModel.serviceUUID())
-        }
+        let UUIDs = registeredServiceModels.map { CBUUID(string: $0.serviceUUID()) }
         peripheral?.discoverServices(UUIDs)
     }
     
@@ -156,7 +154,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
                 continue
             }
             // Perform discover characteristics only for registered characteristics.
-            let characteristics = serviceModel.characteristicUUIDs.CBUUIDs()
+            let characteristics = serviceModel.characteristicUUIDs.cbUuids
             serviceModel.serviceAvailable = true
             peripheral.discoverCharacteristics(characteristics, for: service)
         }
@@ -190,5 +188,4 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
     @objc func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         
     }
-    
 }

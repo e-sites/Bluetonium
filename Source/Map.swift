@@ -9,13 +9,15 @@
 import Foundation
 
 
-public protocol MapValue {}
+public protocol MapValue {
+    init()
+}
+
 extension Data: MapValue {}
 extension String: MapValue {}
 extension UInt8: MapValue {}
 extension UInt16: MapValue {}
 extension UInt32: MapValue {}
-
 
 open class Map {
     var setMapUUID: String?
@@ -56,7 +58,7 @@ open class Map {
 
      - return: The type of the property.
      */
-    fileprivate func valueTypeOfField<T:MapValue>(_ field: inout T) -> Any.Type {
+    private func valueTypeOfField<T:MapValue>(_ field: inout T) -> Any.Type {
         return Mirror(reflecting: field).subjectType
     }
 }
