@@ -123,9 +123,9 @@ open class Manager: NSObject, CBCentralManagerDelegate {
      Store the connectedUUID in the UserDefaults.
      This is to restore the connection after the app restarts or runs in the background.
      */
-    fileprivate func store(connectedUUID UUID: String?) {
+    fileprivate func store(connectedUUID uuid: String?) {
         let defaults = UserDefaults.standard
-        defaults.set(UUID, forKey: ManagerConstants.UUIDStoreKey)
+        defaults.set(uuid, forKey: ManagerConstants.UUIDStoreKey)
         defaults.synchronize()
     }
     

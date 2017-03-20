@@ -27,8 +27,8 @@ open class Map {
     var currentMapUUID = ""
     weak var serviceModel: ServiceModel?
     
-    open subscript(UUID: String) -> Map {
-        currentMapUUID = UUID
+    open subscript(uuid: String) -> Map {
+        currentMapUUID = uuid
         
         return self
     }

@@ -78,7 +78,7 @@ class BatteryServiceModel: ServiceModel {
 
 	var batteryLevel: UInt8 = 0
 	
-	override func serviceUUID() -> String {
+	override var serviceUUID:String {
 		return "180F"
 	}
 	

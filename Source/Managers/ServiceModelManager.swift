@@ -31,7 +31,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
             return
         }
         
-        let UUIDs = registeredServiceModels.map { CBUUID(string: $0.serviceUUID()) }
+        let UUIDs = registeredServiceModels.map { CBUUID(string: $0.serviceUUID) }
         peripheral?.discoverServices(UUIDs)
     }
     
@@ -104,8 +104,8 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
         
      - returns: Returns a registered `BTServiceModel` subclass if found.
      */
-    fileprivate func serviceModel(withUUID UUID: String) -> ServiceModel? {
-        return registeredServiceModels.filter { $0.serviceUUID() == UUID }.first
+    fileprivate func serviceModel(withUUID uuid: String) -> ServiceModel? {
+        return registeredServiceModels.filter { $0.serviceUUID == uuid }.first
     }
     
     /**

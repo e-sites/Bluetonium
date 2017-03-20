@@ -52,8 +52,7 @@ class ConnectedViewController :  UIViewController, ManagerDelegate, HeartRateSer
         btManager?.disconnectFromDevice()
         
         self.dismiss(animated: true, completion: nil)
-    }
-    
+    }    
     
     // MARK: Manager delegate
     

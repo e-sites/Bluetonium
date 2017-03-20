@@ -13,7 +13,7 @@ import CoreBluetooth
  A `Device` will represent a CBPeripheral.
  When registering ServiceModels on this device it will automaticly map the characteristics to the correct value.
 */
-open class Device: Equatable {
+public class Device: Equatable {
     
     // An array of all registered `ServiceModel` subclasses
     open var registedServiceModels: [ServiceModel] {
@@ -21,7 +21,7 @@ open class Device: Equatable {
     }
     
     // The peripheral it represents.
-    private(set) open var peripheral: CBPeripheral
+    private(set) public var peripheral: CBPeripheral
     
     // The ServiceModelManager that will manage all registered `ServiceModels`
     private(set) var serviceModelManager: ServiceModelManager
@@ -46,7 +46,7 @@ open class Device: Equatable {
     
      - parameter serviceModel: The ServiceModel subclass to register.
      */
-    open func register(serviceModel: ServiceModel) {
+    public func register(serviceModel: ServiceModel) {
         serviceModelManager.register(serviceModel: serviceModel)
     }
     

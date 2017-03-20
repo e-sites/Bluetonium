@@ -28,38 +28,39 @@ class HeartRateServiceModel: ServiceModel {
     var bodyLocation = Data()
     var controlPoint = Data()
     
-    override func serviceUUID() -> String {
+    override var serviceUUID:String {
         return HeartRateServiceModelConstants.serviceUUID
     }
     
     override func mapping(_ map: Map) {
-        heartRate <- (map[HeartRateServiceModelConstants.heartRateUUID], HeartRateDataTransformer())
-        bodyLocation <- map[HeartRateServiceModelConstants.bodyLocationUUID]
-        controlPoint <- map[HeartRateServiceModelConstants.controlPointUUID]
+        heartRate       <- (map[HeartRateServiceModelConstants.heartRateUUID], HeartRateDataTransformer())
+        bodyLocation    <- map[HeartRateServiceModelConstants.bodyLocationUUID]
+        controlPoint    <- map[HeartRateServiceModelConstants.controlPointUUID]
     }
     
-    override func registerNotifyForCharacteristic(withUUID UUID: String) -> Bool {
-        return UUID == HeartRateServiceModelConstants.heartRateUUID
+    override func registerNotifyForCharacteristic(withUUID uuid: String) -> Bool {
+        return uuid == HeartRateServiceModelConstants.heartRateUUID
     }
     
-    override func characteristicBecameAvailable(withUUID UUID: String) {
+    override func characteristicBecameAvailable(withUUID uuid: String) {
         // Reset Energy Expended via ControlPoint if needed.
-        if UUID == HeartRateServiceModelConstants.controlPointUUID {
-            var rawArray:[UInt8] = [0x01]
-            
-            controlPoint = Data(bytes: &rawArray, count: rawArray.count)
-            writeValue(withUUID: UUID)
+        if uuid != HeartRateServiceModelConstants.controlPointUUID {
+            return
         }
+        
+        var rawArray:[UInt8] = [0x01]
+        controlPoint = Data(bytes: &rawArray, count: rawArray.count)
+        writeValue(withUUID: uuid)
     }
     
-    override func characteristicDidUpdateValue(withUUID UUID: String) {
-        if UUID == HeartRateServiceModelConstants.heartRateUUID {
-            DispatchQueue.main.async {
-                self.delegate?.heartRateChanged(self.heartRate)
-            }
+    override func characteristicDidUpdateValue(withUUID uuid: String) {
+        if (uuid != HeartRateServiceModelConstants.heartRateUUID) {
+            return
+        }
+        DispatchQueue.main.async {
+            self.delegate?.heartRateChanged(self.heartRate)
         }
     }
-    
 }
 
 /**
@@ -87,7 +88,6 @@ class HeartRateDataTransformer: DataTransformer {
         // Unused
         return Data()
     }
-    
 }
 
 

@@ -32,7 +32,7 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-        scanButtonTitle("Start")
+        scanButton?.title = "Start"
         btManager.stopScanForDevices()
     }
     
@@ -64,11 +64,7 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell", for: indexPath)
         let device = btManager.foundDevices[indexPath.row]
         
-        var text = "⛄️ No name"
-        if let name = device.peripheral.name {
-            text = name
-        }
-        cell.textLabel?.text = text
+        cell.textLabel?.text = device.peripheral.name ?? "⛄️ No name"
         cell.textLabel?.font = (device.peripheral.state == .connected) ? UIFont.boldSystemFont(ofSize: 14) : UIFont.systemFont(ofSize: 14)
         
         return cell
@@ -87,15 +83,11 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
     func toggleScan() {
         if btManager.scanning {
             btManager.stopScanForDevices()
-            scanButtonTitle("Start")
+            scanButton?.title = "Start"
         } else {
             btManager.startScanForDevices()
-            scanButtonTitle("Stop")
+            scanButton?.title = "Stop"
         }
-    }
-    
-    func scanButtonTitle(_ title: String) {
-        scanButton?.title = title
     }
     
     func presentConnectedView(with device: Device) {
