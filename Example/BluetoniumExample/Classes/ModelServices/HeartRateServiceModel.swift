@@ -63,9 +63,9 @@ class HeartRateServiceModel: ServiceModel {
 }
 
 /**
-    HeartRateDataTransformer
-    Transforms Data to an actual HeartRate.
-*/
+ HeartRateDataTransformer
+ Transforms Data to an actual HeartRate.
+ */
 class HeartRateDataTransformer: DataTransformer {
     
     func transform(dataToValue data: Data?) -> MapValue {
@@ -74,16 +74,13 @@ class HeartRateDataTransformer: DataTransformer {
             return UInt16()
         }
         
-        var bpm = UInt16()
-        
-        data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) -> Void in
-            if (bytes[0] & 0x01 == 0){
-                bpm = UInt16(bytes[1])
+        return data.withUnsafeBytes { (buffer: UnsafePointer<UInt16>) in
+            if (buffer[0] & 0x01 == 0) {
+                return UInt16(buffer[1]) as UInt16
             } else {
-                bpm = CFSwapInt16LittleToHost(UInt16(bytes[1]))
+                return CFSwapInt16LittleToHost(UInt16(buffer[1])) as UInt16
             }
         }
-        return bpm
     }
     
     func transform(valueToData value: MapValue?) -> Data {

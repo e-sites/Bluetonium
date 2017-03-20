@@ -79,17 +79,16 @@ class UInt8DataTransformer: DataTransformer {
         guard let data = data else {
             return UInt8()
         }
-        
-        return data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) -> UInt8 in
-            return ptr.pointee
-        }
+        var value = UInt8()
+        (data as NSData).getBytes(&value, length: MemoryLayout<UInt8>.size)
+        return value
     }
     
     func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt8 else {
             return Data()
         }
-        return Data(buffer: UnsafeBufferPointer(start: &value, count: MemoryLayout<UInt8>.size))
+        return Data(bytes: &value, count: MemoryLayout<UInt8>.size)
     }
     
 }
@@ -104,16 +103,16 @@ class UInt16DataTransformer: DataTransformer {
             return UInt16()
         }
         
-        return data.withUnsafeBytes { (ptr: UnsafePointer<UInt16>) -> UInt16 in
-            return ptr.pointee
-        }
+        var value = UInt16()
+        (data as NSData).getBytes(&value, length: MemoryLayout<UInt8>.size)
+        return value
     }
     
     func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt16 else {
             return Data()
         }
-        return Data(buffer: UnsafeBufferPointer(start: &value, count: MemoryLayout<UInt16>.size))
+        return Data(bytes: &value, count: MemoryLayout<UInt16>.size)
     }
     
 }
@@ -128,16 +127,16 @@ class UInt32DataTransformer: DataTransformer {
             return UInt32()
         }
         
-        return data.withUnsafeBytes { (ptr: UnsafePointer<UInt32>) -> UInt32 in
-            return ptr.pointee
-        }
+        var value = UInt32()
+        (data as NSData).getBytes(&value, length: MemoryLayout<UInt8>.size)
+        return value
     }
     
     func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt32 else {
             return Data()
         }
-        return Data(buffer: UnsafeBufferPointer(start: &value, count: MemoryLayout<UInt32>.size))
+        return Data(bytes: &value, count: MemoryLayout<UInt32>.size)
     }
     
 }

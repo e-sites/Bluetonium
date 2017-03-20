@@ -4,7 +4,7 @@ Bluetonium is a Swift Library that makes it easy to communicate with Bluetooth d
 
 [![Build Status](https://travis-ci.org/e-sites/Bluetonium.svg)](https://travis-ci.org/e-sites/Bluetonium)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Bluetonium.svg)](https://img.shields.io/cocoapods/v/Bluetonium.svg)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/Bluetonium.svg?style=flat)](http://cocoadocs.org/docsets/Bluetonium)
 [![Quality](https://apps.e-sites.nl/cocoapodsquality/Bluetonium/badge.svg?003)](https://cocoapods.org/pods/Bluetonium/quality)
 

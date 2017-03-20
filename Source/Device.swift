@@ -29,9 +29,9 @@ open class Device: Equatable {
         }
     }
     // The peripheral it represents.
-    fileprivate(set) open var peripheral: CBPeripheral
+    private(set) open var peripheral: CBPeripheral
     // The ServiceModelManager that will manage all registered `ServiceModels`
-    fileprivate(set) var serviceModelManager: ServiceModelManager
+    private(set) var serviceModelManager: ServiceModelManager
     
     // MARK: Initializers
     
