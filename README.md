@@ -11,7 +11,7 @@ Bluetonium is a Swift Library that makes it easy to communicate with Bluetooth d
 
 - [x] 🎲 Services and characteristics mapping
 - [x] 👓 Default data transformers
-- [x] 🔧 Reading & Writing to peripherals
+- [x] 🔧 Reading & writing to peripherals
 - [x] 🌔 Background mode
 - [x] 📻 Scanning and connecting to peripherals
 
@@ -60,7 +60,7 @@ If a device is found you will get notified by the `func manager(manager: Manager
 Connecting to a device is simple.
 
 ```swift
-manager.connectWithDevice(device)
+manager.connect(with: device)
 ```
 
 The `device` is a device form the `foundDevices` array.
@@ -92,8 +92,8 @@ Register a `ServiceModel` subclass. Make sure you do this before the device is a
 ```swift
 let batteryServiceModel = BatteryServiceModel()
 
-func manager(manager: Manager, willConnectToDevice device: Device) {
-	device.registerServiceModel(batteryServiceModel)
+func manager(_ manager: Manager, willConnectToDevice device: Device) {
+	device.register(serviceModel: batteryServiceModel)
 }
 ```
 
@@ -132,14 +132,14 @@ The custom DataTransformer needs to conform to the `DataTransformer` protocol wh
 ```swift
 class HeartRateDataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
     	// Used when reading from the characteristic.
-    	// Transform NSData to your property MapValue.
+    	// Transform Data to your property MapValue.
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
     	// Used when writing to the characteristic.
-    	// Transform your property MapValue to NSData.
+    	// Transform your property MapValue to Data.
     }
     
 }

@@ -39,8 +39,8 @@ class ConnectedViewController :  UIViewController, ManagerDelegate, HeartRateSer
             }
         }
         
-        self.uuidLabel.text = connectedDevice.peripheral.identifier.UUIDString
-        if connectedDevice.peripheral.state == .Connected {
+        self.uuidLabel.text = connectedDevice.peripheral.identifier.uuidString
+        if connectedDevice.peripheral.state == .connected {
             title = "Connected"
         }
         if let name = connectedDevice.peripheral.name {
@@ -51,27 +51,27 @@ class ConnectedViewController :  UIViewController, ManagerDelegate, HeartRateSer
     @IBAction func didPressDisconnect(sender:UIButton?) {
         btManager?.disconnectFromDevice()
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     // MARK: Manager delegate
     
-    func manager(manager: Manager, willConnectToDevice device: Device) {
+    func manager(_ manager: Manager, willConnectToDevice device: Device) {
         
     }
     
-    func manager(manager: Manager, didFindDevice device: Device) {
+    func manager(_ manager: Manager, didFindDevice device: Device) {
         
     }
     
-    func manager(manager: Manager, connectedToDevice device: Device) {
+    func manager(_ manager: Manager, connectedToDevice device: Device) {
         self.title = "Connected!"
     }
     
-    func manager(manager: Manager, disconnectedFromDevice device: Device, retry: Bool) {
+    func manager(_ manager: Manager, disconnectedFromDevice device: Device, retry: Bool) {
         if !retry {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         } else {
             self.title = "Connecting..."
         }
@@ -79,11 +79,11 @@ class ConnectedViewController :  UIViewController, ManagerDelegate, HeartRateSer
     
     // MARK: ServiceModel delegates
     
-    func heartRateChanged(heartRate: UInt16) {
+    func heartRateChanged(_ heartRate: UInt16) {
         heartRateLabel.text = "\(heartRate) bpm"
     }
     
-    func batteryLevelChanged(batteryLevel: UInt8) {
+    func batteryLevelChanged(_ batteryLevel: UInt8) {
         batteryLabel.text = "\(batteryLevel) %"
     }
 }

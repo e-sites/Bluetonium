@@ -15,129 +15,129 @@ public protocol DataTransformer {
     
     /**
      Function used when reading from the characteristic.
-     Transform NSData to the Value
+     Transform Data to the Value
     */
-    func transform(dataToValue data: NSData?) -> MapValue
+    func transform(dataToValue data: Data?) -> MapValue
     
     /**
      Function used when writing to the characteristic.
-     Transform the Value to NSData
+     Transform the Value to Data
      */
-    func transform(valueToData value: MapValue?) -> NSData
+    func transform(valueToData value: MapValue?) -> Data
 }
 
+
 /**
- Default transformer from NSData to NSData and back.
+ Default transformer from Data to Data and back.
 */
-internal class NSDataDataTransformer: DataTransformer {
+class DataDataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
-        if let data = data {
-            return data
-        } else {
-            return NSData()
-        }
+    func transform(dataToValue data: Data?) -> MapValue {
+        return data ?? Data()
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
-        if let value = value as? NSData {
+    func transform(valueToData value: MapValue?) -> Data {
+        if let value = value as? Data {
             return value
         }
-        return NSData()
+        return Data()
     }
     
 }
 
 /**
- Default transformer from NSData to String and back.
+ Default transformer from Data to String and back.
  */
-internal class StringDataTransformer: DataTransformer {
+class StringDataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         if let data = data {
-            if let string = String(data: data, encoding: NSUTF8StringEncoding) {
+            if let string = String(data: data, encoding: String.Encoding.utf8) {
                 return string
             }
         }
         return String()
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
         if let value = value as? String {
-            if let data = value.dataUsingEncoding(NSUTF8StringEncoding) {
+            if let data = value.data(using: String.Encoding.utf8) {
                 return data
             }
         }
-        return NSData()
+        return Data()
     }
     
 }
 
 /**
- Default transformer from NSData to UInt8 and back.
+ Default transformer from Data to UInt8 and back.
  */
-internal class UInt8DataTransformer: DataTransformer {
+class UInt8DataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         guard let data = data else {
             return UInt8()
         }
-        var value = UInt8()
-        data.getBytes(&value, length: sizeof(UInt8))
-        return value
+        
+        return data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) -> UInt8 in
+            return ptr.pointee
+        }
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt8 else {
-            return NSData()
+            return Data()
         }
-        return NSData(bytes: &value, length: sizeof(UInt8))
+        return Data(buffer: UnsafeBufferPointer(start: &value, count: MemoryLayout<UInt8>.size))
     }
     
 }
 
 /**
- Default transformer from NSData to UInt16 and back.
+ Default transformer from Data to UInt16 and back.
  */
-internal class UInt16DataTransformer: DataTransformer {
+class UInt16DataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         guard let data = data else {
             return UInt16()
         }
-        var value = UInt16()
-        data.getBytes(&value, length: sizeof(UInt16))
-        return value
+        
+        return data.withUnsafeBytes { (ptr: UnsafePointer<UInt16>) -> UInt16 in
+            return ptr.pointee
+        }
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt16 else {
-            return NSData()
+            return Data()
         }
-        return NSData(bytes: &value, length: sizeof(UInt16))
+        return Data(buffer: UnsafeBufferPointer(start: &value, count: MemoryLayout<UInt16>.size))
     }
     
 }
 
 /**
- Default transformer from NSData to UInt32 and back.
+ Default transformer from Data to UInt32 and back.
  */
-internal class UInt32DataTransformer: DataTransformer {
+class UInt32DataTransformer: DataTransformer {
     
-    func transform(dataToValue data: NSData?) -> MapValue {
+    func transform(dataToValue data: Data?) -> MapValue {
         guard let data = data else {
             return UInt32()
         }
-        var value = UInt32()
-        data.getBytes(&value, length: sizeof(UInt32))
-        return value
+        
+        return data.withUnsafeBytes { (ptr: UnsafePointer<UInt32>) -> UInt32 in
+            return ptr.pointee
+        }
     }
     
-    func transform(valueToData value: MapValue?) -> NSData {
+    func transform(valueToData value: MapValue?) -> Data {
         guard var value = value as? UInt32 else {
-            return NSData()
+            return Data()
         }
-        return NSData(bytes: &value, length: sizeof(UInt32))
+        return Data(buffer: UnsafeBufferPointer(start: &value, count: MemoryLayout<UInt32>.size))
     }
     
 }
