@@ -1,5 +1,7 @@
 language: objective-c
 osx_image: xcode8.2
 xcode_workspace: Bluetonium.xcworkspace
-xcode_scheme: BluetoniumExample
-xcode_sdk: iphonesimulator10.2
+xcode_scheme: Bluetonium-iOS
+xcode_sdk: iphonesimulator
+script:
+    - xcodebuild clean build -sdk iphonesimulator -workspace Bluetonium.xcworkspace -scheme Bluetonium-iOS CODE_SIGNING_REQUIRED=NO
