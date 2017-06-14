@@ -144,7 +144,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
     
     // MARK: CBPeripheralDelegate
     
-    @objc func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else {
             return
         }
@@ -160,7 +160,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
         }
     }
     
-    @objc func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard let serviceModel = serviceModel(withUUID: service.uuid.uuidString), let characteristics = service.characteristics else {
             return
         }
@@ -176,7 +176,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
         }
     }
     
-    @objc func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard let serviceModel = serviceModel(withUUID: characteristic.service.uuid.uuidString) else {
             return
         }
@@ -185,7 +185,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
         serviceModel.didRead(characteristic.value, withUUID: characteristic.uuid.uuidString)
     }
     
-    @objc func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         
     }
 }

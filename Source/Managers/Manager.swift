@@ -138,11 +138,11 @@ open class Manager: NSObject, CBCentralManagerDelegate {
     
     // MARK: CBCentralManagerDelegate
     
-    @objc public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
-        print("willRestoreState: \(dict[CBCentralManagerRestoredStatePeripheralsKey])")
+    public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
+        print("willRestoreState: \(String(describing: dict[CBCentralManagerRestoredStatePeripheralsKey]))")
     }
     
-    @objc public func centralManagerDidUpdateState(_ central: CBCentralManager) {
+    public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         
         switch (central.state) {
         case .poweredOn:
@@ -176,7 +176,7 @@ open class Manager: NSObject, CBCentralManagerDelegate {
         }
     }
     
-    @objc public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+    public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let device = Device(peripheral: peripheral)
         if foundDevices.contains(device) {
             return
@@ -192,7 +192,7 @@ open class Manager: NSObject, CBCentralManagerDelegate {
         }
     }
     
-    @objc public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+    public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         guard let connectedDevice = connectedDevice else {
             return
         }
@@ -206,11 +206,11 @@ open class Manager: NSObject, CBCentralManagerDelegate {
         }
     }
     
-    @objc public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+    public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print("didFailToConnect \(peripheral)")
     }
     
-    @objc public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+    public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         guard peripheral.identifier.uuidString == connectedDevice?.peripheral.identifier.uuidString else {
             return
         }
@@ -242,7 +242,7 @@ private struct ManagerConstants {
 }
 
 
-extension Collection where Iterator.Element:MapValue, Iterator.Element == String {
+extension Collection where Iterator.Element == String {
     var cbUuids:[CBUUID] {
         return self.map { CBUUID(string: $0) }
     }
