@@ -15,7 +15,7 @@ Bluetonium is a Swift Library that makes it easy to communicate with Bluetooth d
 - [x] 🔧 Reading & writing to peripherals
 - [x] 🌔 Background mode
 - [x] 📻 Scanning and connecting to peripherals
-- [x] 🦅 Swift 3
+- [x] 🦅 Swift 3 & 4
 
 ## Requirements
 
