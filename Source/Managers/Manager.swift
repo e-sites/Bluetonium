@@ -139,7 +139,7 @@ open class Manager: NSObject, CBCentralManagerDelegate {
     // MARK: CBCentralManagerDelegate
     
     @objc public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
-        print("willRestoreState: \(dict[CBCentralManagerRestoredStatePeripheralsKey])")
+        print("willRestoreState: \(String(describing: dict[CBCentralManagerRestoredStatePeripheralsKey]))")
     }
     
     @objc public func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -156,9 +156,12 @@ open class Manager: NSObject, CBCentralManagerDelegate {
                 }
                 
                 dispatchQueue.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { [weak self] in
-                    let device = Device(peripheral: peripheral)
+                    guard let `self` = self else {
+                        return
+                    }
+                    let device = self.foundDevices.create(from: peripheral)
                     device.registerServiceManager()
-                    self?.connect(with: device)
+                    self.connect(with: device)
                 }
             }
             
@@ -177,11 +180,11 @@ open class Manager: NSObject, CBCentralManagerDelegate {
     }
     
     @objc public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        let device = Device(peripheral: peripheral)
-        if foundDevices.contains(device) {
+        if foundDevices.has(peripheral: peripheral) {
             return
         }
-        
+
+        let device = Device(peripheral: peripheral)
         foundDevices.append(device)
         
         // Only after adding it to the list to prevent issues reregistering the delegate.
@@ -242,8 +245,18 @@ private struct ManagerConstants {
 }
 
 
-extension Collection where Iterator.Element:MapValue, Iterator.Element == String {
+extension Collection where Iterator.Element == String {
     var cbUuids:[CBUUID] {
         return self.map { CBUUID(string: $0) }
+    }
+}
+
+extension Array where Element:Device {
+    fileprivate func create(from peripheral: CBPeripheral) -> Device {
+        return self.filter { $0.peripheral.identifier == peripheral.identifier }.first ?? Device(peripheral: peripheral)
+    }
+
+    fileprivate func has(peripheral: CBPeripheral) -> Bool {
+        return (self.filter { $0.peripheral.identifier == peripheral.identifier }).count > 0
     }
 }

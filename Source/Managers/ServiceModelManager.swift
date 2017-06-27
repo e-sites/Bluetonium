@@ -148,7 +148,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
         guard let services = peripheral.services else {
             return
         }
-        
+
         for service in services {
             guard let serviceModel = serviceModel(withUUID: service.uuid.uuidString) else {
                 continue
@@ -164,7 +164,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
         guard let serviceModel = serviceModel(withUUID: service.uuid.uuidString), let characteristics = service.characteristics else {
             return
         }
-        
+
         for characteristic in characteristics {
             // Check with correct ServiceModel if it should register for value changes.
             if serviceModel.registerNotifyForCharacteristic(withUUID: characteristic.uuid.uuidString) {
@@ -175,7 +175,9 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
             serviceModel.characteristicAvailable(withUUID: characteristic.uuid.uuidString)
         }
     }
-    
+
+    @objc func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) { }
+
     @objc func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard let serviceModel = serviceModel(withUUID: characteristic.service.uuid.uuidString) else {
             return

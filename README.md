@@ -15,7 +15,7 @@ Bluetonium is a Swift Library that makes it easy to communicate with Bluetooth d
 - [x] 🔧 Reading & writing to peripherals
 - [x] 🌔 Background mode
 - [x] 📻 Scanning and connecting to peripherals
-- [x] 🦅 Swift 3
+- [x] 🦅 Swift 3 & 4
 
 ## Requirements
 
@@ -75,6 +75,9 @@ This example represents the [Battery Service](https://developer.bluetooth.org/ga
 
 ```swift
 class BatteryServiceModel: ServiceModel {
+	enum Characteristic : String {
+		case batteryLevel = "2A19"
+	}
 
 	var batteryLevel: UInt8 = 0
 	
@@ -83,7 +86,7 @@ class BatteryServiceModel: ServiceModel {
 	}
 	
 	override func mapping(map: Map) {
-		batteryLevel <- map["2A19"]
+		batteryLevel <- map[Characteristic.batteryLevel.rawValue]
 	}
 	
 }

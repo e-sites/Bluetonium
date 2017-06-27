@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'Bluetonium'
-  s.version  = '2.0'
+  s.version  = '2.0.1'
   s.license  = { :type => 'MIT', :file => 'LICENSE' }
   s.summary  = 'Bluetooth library written in Swift. Mapping services and characteristics to models.'
   s.authors  = { 'Dick Verbunt' => 'dick@e-sites.nl', 'Dominggus Salampessy' => 'dominggus@e-sites.nl', 'Bas van Kuijck' => 'bas@e-sites.nl' }
