@@ -80,7 +80,7 @@ class DevicesViewController: UITableViewController, ManagerDelegate {
     
     // MARK: Private functions
     
-    func toggleScan() {
+    @objc func toggleScan() {
         if btManager.scanning {
             btManager.stopScanForDevices()
             scanButton?.title = "Start"

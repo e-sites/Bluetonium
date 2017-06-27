@@ -7,30 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C394E08A1E802C6100627974 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E0851E802C6100627974 /* Manager.swift */; };
-		C394E08B1E802C6100627974 /* ServiceModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E0861E802C6100627974 /* ServiceModelManager.swift */; };
-		C394E08C1E802C6100627974 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E0881E802C6100627974 /* Device.swift */; };
-		C394E08D1E802C6100627974 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E0891E802C6100627974 /* ServiceModel.swift */; };
-		C394E08F1E802C7B00627974 /* ManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394E08E1E802C7B00627974 /* ManagerDelegate.swift */; };
-		DAABFE8C1C5BAEC200239CAA /* DataTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABFE841C5BAEC200239CAA /* DataTransformers.swift */; };
-		DAABFE901C5BAEC200239CAA /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABFE881C5BAEC200239CAA /* Map.swift */; };
-		DAABFE951C5BAF8700239CAA /* Bluetonium.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABFE831C5BAEC200239CAA /* Bluetonium.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C39019ED1F02973F00DD12A4 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A61F02882A00359894 /* Manager.swift */; };
+		C39019EE1F02973F00DD12A4 /* ManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A71F02882A00359894 /* ManagerDelegate.swift */; };
+		C39019EF1F02973F00DD12A4 /* ServiceModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A81F02882A00359894 /* ServiceModelManager.swift */; };
+		C39019F01F02974200DD12A4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A91F02882A00359894 /* Map.swift */; };
+		C39019F11F02974200DD12A4 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507AB1F02882A00359894 /* Device.swift */; };
+		C39019F21F02974200DD12A4 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507AC1F02882A00359894 /* ServiceModel.swift */; };
+		C39019F31F02974400DD12A4 /* DataTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A31F02882A00359894 /* DataTransformers.swift */; };
+		C39019FD1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019FC1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift */; };
+		C39019FF1F02978B00DD12A4 /* Bluetonium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA907BAF1C5766FC00D9487F /* Bluetonium.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C3901A001F02978B00DD12A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA907BA61C5766FC00D9487F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA907BAE1C5766FC00D9487F;
+			remoteInfo = "Bluetonium-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		C394E0851E802C6100627974 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
-		C394E0861E802C6100627974 /* ServiceModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModelManager.swift; sourceTree = "<group>"; };
-		C394E0881E802C6100627974 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		C394E0891E802C6100627974 /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
-		C394E08E1E802C7B00627974 /* ManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerDelegate.swift; sourceTree = "<group>"; };
+		C38507A21F02882A00359894 /* Bluetonium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bluetonium.h; sourceTree = "<group>"; };
+		C38507A31F02882A00359894 /* DataTransformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformers.swift; sourceTree = "<group>"; };
+		C38507A41F02882A00359894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C38507A61F02882A00359894 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		C38507A71F02882A00359894 /* ManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDelegate.swift; sourceTree = "<group>"; };
+		C38507A81F02882A00359894 /* ServiceModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModelManager.swift; sourceTree = "<group>"; };
+		C38507A91F02882A00359894 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C38507AB1F02882A00359894 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		C38507AC1F02882A00359894 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		C39019FA1F02978B00DD12A4 /* Bluetonium-iOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bluetonium-iOS_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C39019FC1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetonium_iOS_Tests.swift; sourceTree = "<group>"; };
+		C39019FE1F02978B00DD12A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA907BAF1C5766FC00D9487F /* Bluetonium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluetonium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAABFE831C5BAEC200239CAA /* Bluetonium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bluetonium.h; path = Source/Bluetonium.h; sourceTree = SOURCE_ROOT; };
-		DAABFE841C5BAEC200239CAA /* DataTransformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataTransformers.swift; path = Source/DataTransformers.swift; sourceTree = SOURCE_ROOT; };
-		DAABFE861C5BAEC200239CAA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
-		DAABFE881C5BAEC200239CAA /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Map.swift; path = Source/Map.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C39019F71F02978B00DD12A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39019FF1F02978B00DD12A4 /* Bluetonium.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA907BAB1C5766FC00D9487F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,31 +63,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C394E0841E802C6100627974 /* Managers */ = {
+		C38507A11F02882A00359894 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C394E08E1E802C7B00627974 /* ManagerDelegate.swift */,
-				C394E0851E802C6100627974 /* Manager.swift */,
-				C394E0861E802C6100627974 /* ServiceModelManager.swift */,
+				C38507A21F02882A00359894 /* Bluetonium.h */,
+				C38507A31F02882A00359894 /* DataTransformers.swift */,
+				C38507A41F02882A00359894 /* Info.plist */,
+				C38507A51F02882A00359894 /* Managers */,
+				C38507A91F02882A00359894 /* Map.swift */,
+				C38507AA1F02882A00359894 /* Models */,
 			);
-			name = Managers;
-			path = Source/Managers;
-			sourceTree = SOURCE_ROOT;
+			path = Source;
+			sourceTree = "<group>";
 		};
-		C394E0871E802C6100627974 /* Models */ = {
+		C38507A51F02882A00359894 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				C394E0881E802C6100627974 /* Device.swift */,
-				C394E0891E802C6100627974 /* ServiceModel.swift */,
+				C38507A61F02882A00359894 /* Manager.swift */,
+				C38507A71F02882A00359894 /* ManagerDelegate.swift */,
+				C38507A81F02882A00359894 /* ServiceModelManager.swift */,
 			);
-			name = Models;
-			path = Source/Models;
-			sourceTree = SOURCE_ROOT;
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C38507AA1F02882A00359894 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C38507AB1F02882A00359894 /* Device.swift */,
+				C38507AC1F02882A00359894 /* ServiceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C39019FB1F02978B00DD12A4 /* Bluetonium-iOS_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C39019FC1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift */,
+				C39019FE1F02978B00DD12A4 /* Info.plist */,
+			);
+			path = "Bluetonium-iOS_Tests";
+			sourceTree = "<group>";
 		};
 		DA907BA51C5766FC00D9487F = {
 			isa = PBXGroup;
 			children = (
-				DA907BBA1C57684900D9487F /* Bluetonium */,
+				C38507A11F02882A00359894 /* Source */,
+				C39019FB1F02978B00DD12A4 /* Bluetonium-iOS_Tests */,
 				DA907BB01C5766FC00D9487F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,37 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				DA907BAF1C5766FC00D9487F /* Bluetonium.framework */,
+				C39019FA1F02978B00DD12A4 /* Bluetonium-iOS_Tests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DA907BBA1C57684900D9487F /* Bluetonium */ = {
-			isa = PBXGroup;
-			children = (
-				DAABFE931C5BAECA00239CAA /* Source */,
-				DAABFE941C5BAED200239CAA /* Supporting Files */,
-			);
-			path = Bluetonium;
-			sourceTree = "<group>";
-		};
-		DAABFE931C5BAECA00239CAA /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				C394E0841E802C6100627974 /* Managers */,
-				C394E0871E802C6100627974 /* Models */,
-				DAABFE841C5BAEC200239CAA /* DataTransformers.swift */,
-				DAABFE881C5BAEC200239CAA /* Map.swift */,
-			);
-			name = Source;
-			sourceTree = "<group>";
-		};
-		DAABFE941C5BAED200239CAA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DAABFE831C5BAEC200239CAA /* Bluetonium.h */,
-				DAABFE861C5BAEC200239CAA /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,13 +129,30 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAABFE951C5BAF8700239CAA /* Bluetonium.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C39019F91F02978B00DD12A4 /* Bluetonium-iOS_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3901A021F02978B00DD12A4 /* Build configuration list for PBXNativeTarget "Bluetonium-iOS_Tests" */;
+			buildPhases = (
+				C39019F61F02978B00DD12A4 /* Sources */,
+				C39019F71F02978B00DD12A4 /* Frameworks */,
+				C39019F81F02978B00DD12A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3901A011F02978B00DD12A4 /* PBXTargetDependency */,
+			);
+			name = "Bluetonium-iOS_Tests";
+			productName = "Bluetonium-iOS_Tests";
+			productReference = C39019FA1F02978B00DD12A4 /* Bluetonium-iOS_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DA907BAE1C5766FC00D9487F /* Bluetonium-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA907BB71C5766FC00D9487F /* Build configuration list for PBXNativeTarget "Bluetonium-iOS" */;
@@ -145,9 +177,14 @@
 		DA907BA61C5766FC00D9487F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "E-sites";
 				TargetAttributes = {
+					C39019F91F02978B00DD12A4 = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = KH7U9B5DS2;
+					};
 					DA907BAE1C5766FC00D9487F = {
 						CreatedOnToolsVersion = 7.2;
 						LastSwiftMigration = 0820;
@@ -167,11 +204,19 @@
 			projectRoot = "";
 			targets = (
 				DA907BAE1C5766FC00D9487F /* Bluetonium-iOS */,
+				C39019F91F02978B00DD12A4 /* Bluetonium-iOS_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C39019F81F02978B00DD12A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA907BAD1C5766FC00D9487F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,23 +227,93 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C39019F61F02978B00DD12A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39019FD1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA907BAA1C5766FC00D9487F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C394E08B1E802C6100627974 /* ServiceModelManager.swift in Sources */,
-				C394E08F1E802C7B00627974 /* ManagerDelegate.swift in Sources */,
-				DAABFE8C1C5BAEC200239CAA /* DataTransformers.swift in Sources */,
-				C394E08C1E802C6100627974 /* Device.swift in Sources */,
-				C394E08D1E802C6100627974 /* ServiceModel.swift in Sources */,
-				DAABFE901C5BAEC200239CAA /* Map.swift in Sources */,
-				C394E08A1E802C6100627974 /* Manager.swift in Sources */,
+				C39019EF1F02973F00DD12A4 /* ServiceModelManager.swift in Sources */,
+				C39019F31F02974400DD12A4 /* DataTransformers.swift in Sources */,
+				C39019F21F02974200DD12A4 /* ServiceModel.swift in Sources */,
+				C39019EE1F02973F00DD12A4 /* ManagerDelegate.swift in Sources */,
+				C39019F01F02974200DD12A4 /* Map.swift in Sources */,
+				C39019ED1F02973F00DD12A4 /* Manager.swift in Sources */,
+				C39019F11F02974200DD12A4 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C3901A011F02978B00DD12A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA907BAE1C5766FC00D9487F /* Bluetonium-iOS */;
+			targetProxy = C3901A001F02978B00DD12A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C3901A031F02978B00DD12A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = KH7U9B5DS2;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Bluetonium-iOS_Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esites.Bluetonium-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3901A041F02978B00DD12A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = KH7U9B5DS2;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Bluetonium-iOS_Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esites.Bluetonium-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DA907BB51C5766FC00D9487F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -341,6 +456,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C3901A021F02978B00DD12A4 /* Build configuration list for PBXNativeTarget "Bluetonium-iOS_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3901A031F02978B00DD12A4 /* Debug */,
+				C3901A041F02978B00DD12A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DA907BA91C5766FC00D9487F /* Build configuration list for PBXProject "Bluetonium" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
