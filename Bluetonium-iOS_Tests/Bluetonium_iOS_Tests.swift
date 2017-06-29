@@ -26,7 +26,7 @@ class BatteryServiceModel: ServiceModel {
 
     override func mapping(_ map: Map) {
         batteryLevel <- map[Characteristic.batteryLevel.rawValue]
-        batteryName  <- map[Characteristic.batteryName.rawValue]
+        batteryName  <- (map[Characteristic.batteryName.rawValue], StringDataTransformer())
     }
 }
 
@@ -39,7 +39,12 @@ class Bluetonium_iOS_Tests: XCTestCase {
         case writeDevice
     }
 
-    let manager = Manager()
+    lazy var manager:Manager = {
+        return Manager(centralManager: self.centralManagerMock.centralManager)
+    }()
+
+    let centralManagerMock = CBCentralManagerMock()
+
     var testCase:TestCase = .none
 
     fileprivate let mockBatteryLevel:UInt8 = 80
@@ -58,12 +63,19 @@ class Bluetonium_iOS_Tests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+
         batteryLevelCharacteristicMock.uuid = CBUUID(string: BatteryServiceModel.Characteristic.batteryLevel.rawValue)
         batteryNameCharacteristicMock.uuid = CBUUID(string: BatteryServiceModel.Characteristic.batteryName.rawValue)
 
         batteryServiceCharacteristicServiceMock.uuid = CBUUID(string: batteryServiceModel.serviceUUID)
+        batteryServiceCharacteristicServiceMock.characteristics = [ batteryLevelCharacteristicMock.characteristic, batteryNameCharacteristicMock.characteristic ]
         batteryLevelCharacteristicMock.service = batteryServiceCharacteristicServiceMock.service
         batteryNameCharacteristicMock.service = batteryServiceCharacteristicServiceMock.service
+
+        peripheralMock.name = mockDeviceName
+        peripheralMock.identifier = mockDeviceIdentifier
+        peripheralMock.services = [ batteryServiceCharacteristicServiceMock.service ]
+
         manager.delegate = self
     }
 
@@ -82,6 +94,50 @@ class Bluetonium_iOS_Tests: XCTestCase {
     func testWriteDevice() {
         _runTest(case: .writeDevice)
     }
+
+    func testDataTransformerData() {
+        let dataTransformer = DataDataTransformer()
+
+        let testString = "test"
+        let data = testString.data(using: .utf8)
+        let transformToData = dataTransformer.transform(dataToValue: data) as? Data
+        XCTAssertEqual(transformToData?.count, data?.count)
+
+        let transformFromData = dataTransformer.transform(valueToData: data)
+        XCTAssertEqual(transformFromData.count, data?.count)
+        XCTAssertEqual(dataTransformer.transform(valueToData: nil).count, 0)
+        XCTAssertEqual((dataTransformer.transform(dataToValue: nil) as! Data).count, 0)
+
+    }
+
+    func testDataTransformerString() {
+        let dataTransformer = StringDataTransformer()
+
+        let testString = "test"
+        let data = testString.data(using: .utf8)
+        let transformToString = dataTransformer.transform(dataToValue: data) as? String
+        XCTAssertEqual(transformToString, testString)
+
+        let transformToData = dataTransformer.transform(valueToData: testString)
+        XCTAssertEqual(transformToData.count, data?.count)
+        XCTAssertEqual(dataTransformer.transform(valueToData: nil).count, 0)
+        XCTAssertEqual(dataTransformer.transform(dataToValue: nil) as! String, "")
+
+    }
+
+    func testDataTransformerUInt() {
+        let dataTransformer = UIntDataTransformer<UInt8>()
+
+        let testUInt:UInt8 = 9
+        let data = testUInt.toData()
+        let transformToUInt8 = dataTransformer.transform(dataToValue: data) as? UInt8
+        XCTAssertEqual(transformToUInt8, testUInt)
+
+        let transformToData = dataTransformer.transform(valueToData: testUInt)
+        XCTAssertEqual(transformToData.count, data.count)
+        XCTAssertEqual(dataTransformer.transform(valueToData: nil).count, 0)
+        XCTAssertEqual(dataTransformer.transform(dataToValue: nil) as! UInt8, 0)
+    }
 }
 
 extension Bluetonium_iOS_Tests {
@@ -90,11 +146,13 @@ extension Bluetonium_iOS_Tests {
         testCase = aCase
         _expectation = expectation(description: "mock")
         manager.startScanForDevices()
-        peripheralMock.name = mockDeviceName
-        peripheralMock.identifier = mockDeviceIdentifier
-        let device = Device(peripheral: peripheralMock.peripheral)
+        XCTAssertEqual(manager.scanning, true)
+        centralManagerMock.state = .poweredOff
+        manager.centralManagerDidUpdateState(centralManagerMock.centralManager)
+        centralManagerMock.state = .poweredOn
+        manager.centralManagerDidUpdateState(centralManagerMock.centralManager)
 
-        manager.delegate?.manager(manager, didFindDevice: device)
+        manager.centralManager(centralManagerMock.centralManager, didDiscover: peripheralMock.peripheral, advertisementData: [:], rssi: 0)
         waitForExpectations(timeout: 2, handler: nil)
     }
 
@@ -107,6 +165,16 @@ extension Bluetonium_iOS_Tests {
         } else {
             XCTAssert(false, "Manager is missing a centralManager")
         }
+    }
+}
+
+extension UInt8 {
+    func toData() -> Data {
+        var value = self
+        let data = withUnsafePointer(to: &value) {
+            Data(bytes: UnsafePointer($0), count: MemoryLayout.size(ofValue: self))
+        }
+        return data
     }
 }
 
@@ -127,11 +195,21 @@ extension Bluetonium_iOS_Tests : ManagerDelegate {
         XCTAssertEqual(device.peripheral.state, CBPeripheralState.connecting)
         peripheralMock.state = .connected
         device.register(serviceModel: batteryServiceModel)
-        manager.delegate?.manager(manager, connectedToDevice: device)
+        manager.centralManager(centralManagerMock.centralManager, didConnect: device.peripheral)
+
+//        manager.delegate?.manager(manager, connectedToDevice: device)
+
+        device.serviceModelManager.peripheral(device.peripheral, didDiscoverServices: nil)
+        device.serviceModelManager.peripheral(device.peripheral, didDiscoverCharacteristicsFor: batteryServiceCharacteristicServiceMock.service, error: nil)
+        
         XCTAssert(device.registedServiceModels.contains(batteryServiceModel), "device.registedServiceModels does not contain `batteryServiceModel`")
     }
 
     func manager(_ manager: Manager, connectedToDevice device: Device) {
+        manager.stopScanForDevices()
+        XCTAssertEqual(manager.scanning, false)
+        XCTAssert(batteryServiceModel.serviceModelManager?.characteristicAvailable(BatteryServiceModel.Characteristic.batteryLevel.rawValue, serviceUUID: batteryServiceModel.serviceUUID) == true)
+
         XCTAssertEqual(device.peripheral.state, CBPeripheralState.connected)
         switch (testCase) {
         case .deviceConnect:
@@ -144,17 +222,15 @@ extension Bluetonium_iOS_Tests : ManagerDelegate {
                 self._disconnect(device: device)
             }
 
-            let input = mockBatteryLevel
-            var value = input
-            let data = withUnsafePointer(to: &value) {
-                Data(bytes: UnsafePointer($0), count: MemoryLayout.size(ofValue: input))
-            }
+
+            let data = mockBatteryLevel.toData()
             batteryLevelCharacteristicMock.value = data
 
             batteryServiceModel.serviceModelManager?.peripheral(device.peripheral, didUpdateValueFor: batteryLevelCharacteristicMock.characteristic, error: nil)
         case .writeDevice:
             batteryServiceModel.batteryName = mockBatteryName
             batteryServiceModel.writeValue(withUUID: BatteryServiceModel.Characteristic.batteryName.rawValue)
+            device.serviceModelManager.peripheral(device.peripheral, didWriteValueFor: batteryNameCharacteristicMock.characteristic, error: nil)
             self._disconnect(device: device)
 
 

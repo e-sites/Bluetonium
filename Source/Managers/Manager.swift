@@ -33,6 +33,12 @@ open class Manager: NSObject, CBCentralManagerDelegate {
         foundDevices = []
         centralManager = CBCentralManager(delegate: self, queue: dispatchQueue, options: options)
     }
+
+    convenience init(centralManager: CBCentralManager) {
+        self.init(background: false)
+        centralManager.delegate = self
+        self.centralManager = centralManager
+    }
     
     // MARK: Public functions
     

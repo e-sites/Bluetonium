@@ -13,6 +13,7 @@
 @property (readonly, nonatomic, strong) CBPeripheral *peripheral;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSUUID *identifier;
+@property (nonatomic, strong) NSArray <CBService *> *services;
 @property (nonatomic, readwrite) CBPeripheralState state;
 
 @end

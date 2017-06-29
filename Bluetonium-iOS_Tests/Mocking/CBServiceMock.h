@@ -12,4 +12,5 @@
 @interface CBServiceMock : NSObject
 @property (readonly, nonatomic, strong) CBService *service;
 @property (nonatomic, strong) CBUUID *UUID;
+@property (nonatomic, strong) NSArray<CBCharacteristic *> *characteristics;
 @end

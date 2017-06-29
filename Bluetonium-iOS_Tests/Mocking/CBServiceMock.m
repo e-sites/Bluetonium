@@ -27,4 +27,10 @@
     stubProperty(_service, UUID, self.UUID);
 }
 
+- (void)setCharacteristics:(NSArray<CBCharacteristic *> *)characteristics
+{
+    _characteristics = characteristics;
+    stubProperty(_service, characteristics, self.characteristics);
+}
+
 @end

@@ -40,4 +40,10 @@
     stubProperty(_peripheral, state, @(self.state));
 }
 
+- (void)setServices:(NSArray<CBService *> *)services
+{
+    _services = services;
+    stubProperty(_peripheral, services, self.services);
+}
+
 @end

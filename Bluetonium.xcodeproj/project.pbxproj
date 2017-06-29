@@ -18,6 +18,7 @@
 		C39019F31F02974400DD12A4 /* DataTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A31F02882A00359894 /* DataTransformers.swift */; };
 		C39019FD1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019FC1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift */; };
 		C39019FF1F02978B00DD12A4 /* Bluetonium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA907BAF1C5766FC00D9487F /* Bluetonium.framework */; };
+		C3D767CE1F051BC00086DB49 /* CBCentralManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D767CD1F051BC00086DB49 /* CBCentralManagerMock.m */; };
 		C3D9CCD31F04F38B00C63793 /* CBPeripheralMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D9CCD21F04F38B00C63793 /* CBPeripheralMock.m */; };
 		C3D9CCD61F04FB4100C63793 /* CBCharacteristicMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D9CCD51F04FB4100C63793 /* CBCharacteristicMock.m */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,8 @@
 		C39019FC1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetonium_iOS_Tests.swift; sourceTree = "<group>"; };
 		C39019FE1F02978B00DD12A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3A9893A1F04EF1C00231C2E /* Bluetonium-iOS_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bluetonium-iOS_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		C3D767CC1F051BC00086DB49 /* CBCentralManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCentralManagerMock.h; sourceTree = "<group>"; };
+		C3D767CD1F051BC00086DB49 /* CBCentralManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCentralManagerMock.m; sourceTree = "<group>"; };
 		C3D9CCD11F04F38B00C63793 /* CBPeripheralMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPeripheralMock.h; sourceTree = "<group>"; };
 		C3D9CCD21F04F38B00C63793 /* CBPeripheralMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPeripheralMock.m; sourceTree = "<group>"; };
 		C3D9CCD41F04FB4100C63793 /* CBCharacteristicMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacteristicMock.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				C3D9CCD51F04FB4100C63793 /* CBCharacteristicMock.m */,
 				C301D1241F04FECA006AE8FE /* CBServiceMock.h */,
 				C301D1251F04FECA006AE8FE /* CBServiceMock.m */,
+				C3D767CC1F051BC00086DB49 /* CBCentralManagerMock.h */,
+				C3D767CD1F051BC00086DB49 /* CBCentralManagerMock.m */,
 			);
 			path = Mocking;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			files = (
 				C39019FD1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift in Sources */,
 				C3D9CCD31F04F38B00C63793 /* CBPeripheralMock.m in Sources */,
+				C3D767CE1F051BC00086DB49 /* CBCentralManagerMock.m in Sources */,
 				C301D1261F04FECA006AE8FE /* CBServiceMock.m in Sources */,
 				C3D9CCD61F04FB4100C63793 /* CBCharacteristicMock.m in Sources */,
 			);

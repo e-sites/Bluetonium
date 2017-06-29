@@ -5,3 +5,4 @@
 #import "CBPeripheralMock.h"
 #import "CBCharacteristicMock.h"
 #import "CBServiceMock.h"
+#import "CBCentralManagerMock.h"
