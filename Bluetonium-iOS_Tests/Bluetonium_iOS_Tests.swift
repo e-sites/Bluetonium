@@ -147,9 +147,12 @@ extension Bluetonium_iOS_Tests {
         _expectation = expectation(description: "mock")
         manager.startScanForDevices()
         XCTAssertEqual(manager.scanning, true)
+        manager.startScanForDevices()
         centralManagerMock.state = .poweredOff
+        XCTAssertEqual(manager.bluetoothEnabled, false)
         manager.centralManagerDidUpdateState(centralManagerMock.centralManager)
         centralManagerMock.state = .poweredOn
+        XCTAssertEqual(manager.bluetoothEnabled, true)
         manager.centralManagerDidUpdateState(centralManagerMock.centralManager)
 
         manager.centralManager(centralManagerMock.centralManager, didDiscover: peripheralMock.peripheral, advertisementData: [:], rssi: 0)
