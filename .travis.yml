@@ -4,4 +4,6 @@ xcode_workspace: Bluetonium.xcworkspace
 xcode_scheme: Bluetonium-iOS
 xcode_sdk: iphonesimulator
 script:
-    - xcodebuild clean build test -sdk iphonesimulator -workspace Bluetonium.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 7' -scheme "Bluetonium-iOS" CODE_SIGNING_REQUIRED=NO
+    - xcodebuild clean build test -sdk iphonesimulator -workspace Bluetonium.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 7' -scheme "Bluetonium-iOS" CODE_SIGNING_REQUIRED=NO -enableCodeCoverage YES
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
