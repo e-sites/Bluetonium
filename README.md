@@ -85,7 +85,7 @@ class BatteryServiceModel: ServiceModel {
 		return "180F"
 	}
 	
-	override func mapping(map: Map) {
+	override func mapping(_ map: Map) {
 		batteryLevel <- map[Characteristic.batteryLevel.rawValue]
 	}
 	
@@ -153,7 +153,7 @@ class HeartRateDataTransformer: DataTransformer {
 To register your custom DataTransform you can add it to the mapping function:
 
 ```swift
-func mapping(map: Map) {
+func mapping(_ map: Map) {
 	heartRate <- (map["2A37"], HeartRateDataTransformer())
 }
 ```

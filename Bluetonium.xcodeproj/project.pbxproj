@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421FB79D27C31F05E73387AA /* libPods-Bluetonium-iOS_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 466C098A8C7544D77D04D97B /* libPods-Bluetonium-iOS_Tests.a */; };
+		C301D1261F04FECA006AE8FE /* CBServiceMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C301D1251F04FECA006AE8FE /* CBServiceMock.m */; };
 		C39019ED1F02973F00DD12A4 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A61F02882A00359894 /* Manager.swift */; };
 		C39019EE1F02973F00DD12A4 /* ManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A71F02882A00359894 /* ManagerDelegate.swift */; };
 		C39019EF1F02973F00DD12A4 /* ServiceModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A81F02882A00359894 /* ServiceModelManager.swift */; };
@@ -16,6 +18,8 @@
 		C39019F31F02974400DD12A4 /* DataTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38507A31F02882A00359894 /* DataTransformers.swift */; };
 		C39019FD1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019FC1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift */; };
 		C39019FF1F02978B00DD12A4 /* Bluetonium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA907BAF1C5766FC00D9487F /* Bluetonium.framework */; };
+		C3D9CCD31F04F38B00C63793 /* CBPeripheralMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D9CCD21F04F38B00C63793 /* CBPeripheralMock.m */; };
+		C3D9CCD61F04FB4100C63793 /* CBCharacteristicMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D9CCD51F04FB4100C63793 /* CBCharacteristicMock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0944B27E3143F7A8DA799ECA /* Pods-Bluetonium-iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetonium-iOS_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bluetonium-iOS_Tests/Pods-Bluetonium-iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		466C098A8C7544D77D04D97B /* libPods-Bluetonium-iOS_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bluetonium-iOS_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6CC90AA726CA79A734D3E1 /* Pods-Bluetonium-iOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetonium-iOS_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bluetonium-iOS_Tests/Pods-Bluetonium-iOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C301D1241F04FECA006AE8FE /* CBServiceMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBServiceMock.h; sourceTree = "<group>"; };
+		C301D1251F04FECA006AE8FE /* CBServiceMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBServiceMock.m; sourceTree = "<group>"; };
 		C38507A21F02882A00359894 /* Bluetonium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bluetonium.h; sourceTree = "<group>"; };
 		C38507A31F02882A00359894 /* DataTransformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformers.swift; sourceTree = "<group>"; };
 		C38507A41F02882A00359894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +50,11 @@
 		C39019FA1F02978B00DD12A4 /* Bluetonium-iOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bluetonium-iOS_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39019FC1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetonium_iOS_Tests.swift; sourceTree = "<group>"; };
 		C39019FE1F02978B00DD12A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3A9893A1F04EF1C00231C2E /* Bluetonium-iOS_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bluetonium-iOS_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		C3D9CCD11F04F38B00C63793 /* CBPeripheralMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPeripheralMock.h; sourceTree = "<group>"; };
+		C3D9CCD21F04F38B00C63793 /* CBPeripheralMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPeripheralMock.m; sourceTree = "<group>"; };
+		C3D9CCD41F04FB4100C63793 /* CBCharacteristicMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacteristicMock.h; sourceTree = "<group>"; };
+		C3D9CCD51F04FB4100C63793 /* CBCharacteristicMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacteristicMock.m; sourceTree = "<group>"; };
 		DA907BAF1C5766FC00D9487F /* Bluetonium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluetonium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C39019FF1F02978B00DD12A4 /* Bluetonium.framework in Frameworks */,
+				421FB79D27C31F05E73387AA /* libPods-Bluetonium-iOS_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36E677BD65EB86938C614992 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D6CC90AA726CA79A734D3E1 /* Pods-Bluetonium-iOS_Tests.debug.xcconfig */,
+				0944B27E3143F7A8DA799ECA /* Pods-Bluetonium-iOS_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C38507A11F02882A00359894 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,10 +122,33 @@
 		C39019FB1F02978B00DD12A4 /* Bluetonium-iOS_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C3A9893A1F04EF1C00231C2E /* Bluetonium-iOS_Tests-Bridging-Header.h */,
+				C3D9CCD01F04F38B00C63793 /* Mocking */,
 				C39019FC1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift */,
 				C39019FE1F02978B00DD12A4 /* Info.plist */,
 			);
 			path = "Bluetonium-iOS_Tests";
+			sourceTree = "<group>";
+		};
+		C3D9CCD01F04F38B00C63793 /* Mocking */ = {
+			isa = PBXGroup;
+			children = (
+				C3D9CCD11F04F38B00C63793 /* CBPeripheralMock.h */,
+				C3D9CCD21F04F38B00C63793 /* CBPeripheralMock.m */,
+				C3D9CCD41F04FB4100C63793 /* CBCharacteristicMock.h */,
+				C3D9CCD51F04FB4100C63793 /* CBCharacteristicMock.m */,
+				C301D1241F04FECA006AE8FE /* CBServiceMock.h */,
+				C301D1251F04FECA006AE8FE /* CBServiceMock.m */,
+			);
+			path = Mocking;
+			sourceTree = "<group>";
+		};
+		C6550239AA273BF0B86EE4B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				466C098A8C7544D77D04D97B /* libPods-Bluetonium-iOS_Tests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DA907BA51C5766FC00D9487F = {
@@ -110,6 +157,8 @@
 				C38507A11F02882A00359894 /* Source */,
 				C39019FB1F02978B00DD12A4 /* Bluetonium-iOS_Tests */,
 				DA907BB01C5766FC00D9487F /* Products */,
+				36E677BD65EB86938C614992 /* Pods */,
+				C6550239AA273BF0B86EE4B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3901A021F02978B00DD12A4 /* Build configuration list for PBXNativeTarget "Bluetonium-iOS_Tests" */;
 			buildPhases = (
+				55A8BBAE2E40F213E06748CF /* [CP] Check Pods Manifest.lock */,
 				C39019F61F02978B00DD12A4 /* Sources */,
 				C39019F71F02978B00DD12A4 /* Frameworks */,
 				C39019F81F02978B00DD12A4 /* Resources */,
+				568382BE2014ABDE1409A1E3 /* [CP] Embed Pods Frameworks */,
+				F424706C847575E72A5E2E47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,6 +236,7 @@
 					C39019F91F02978B00DD12A4 = {
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = KH7U9B5DS2;
+						LastSwiftMigration = 0900;
 					};
 					DA907BAE1C5766FC00D9487F = {
 						CreatedOnToolsVersion = 7.2;
@@ -226,12 +279,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55A8BBAE2E40F213E06748CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		568382BE2014ABDE1409A1E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bluetonium-iOS_Tests/Pods-Bluetonium-iOS_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F424706C847575E72A5E2E47 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bluetonium-iOS_Tests/Pods-Bluetonium-iOS_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C39019F61F02978B00DD12A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C39019FD1F02978B00DD12A4 /* Bluetonium_iOS_Tests.swift in Sources */,
+				C3D9CCD31F04F38B00C63793 /* CBPeripheralMock.m in Sources */,
+				C301D1261F04FECA006AE8FE /* CBServiceMock.m in Sources */,
+				C3D9CCD61F04FB4100C63793 /* CBCharacteristicMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,10 +366,12 @@
 /* Begin XCBuildConfiguration section */
 		C3901A031F02978B00DD12A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D6CC90AA726CA79A734D3E1 /* Pods-Bluetonium-iOS_Tests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -282,17 +388,20 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esites.Bluetonium-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bluetonium-iOS_Tests/Bluetonium-iOS_Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		C3901A041F02978B00DD12A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0944B27E3143F7A8DA799ECA /* Pods-Bluetonium-iOS_Tests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -309,7 +418,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esites.Bluetonium-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bluetonium-iOS_Tests/Bluetonium-iOS_Tests-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -317,6 +426,7 @@
 		DA907BB51C5766FC00D9487F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -366,6 +476,7 @@
 		DA907BB61C5766FC00D9487F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -418,9 +529,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.esites.Bluetonium;
 				PRODUCT_NAME = Bluetonium;
@@ -442,9 +558,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.esites.Bluetonium;
 				PRODUCT_NAME = Bluetonium;
@@ -463,6 +584,7 @@
 				C3901A041F02978B00DD12A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA907BA91C5766FC00D9487F /* Build configuration list for PBXProject "Bluetonium" */ = {
 			isa = XCConfigurationList;

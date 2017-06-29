@@ -20,7 +20,7 @@ open class Manager: NSObject, CBCentralManagerDelegate {
     private(set) open var foundDevices: [Device]!
     open weak var delegate: ManagerDelegate?
     
-    private var centralManager: CBCentralManager?
+    private(set) var centralManager: CBCentralManager?
     private var disconnecting = false
     private lazy var dispatchQueue:DispatchQueue = DispatchQueue(label: ManagerConstants.dispatchQueueLabel, attributes: [])
     

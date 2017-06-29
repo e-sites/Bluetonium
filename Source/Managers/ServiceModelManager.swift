@@ -11,7 +11,7 @@ import CoreBluetooth
 
 class ServiceModelManager: NSObject, CBPeripheralDelegate {
     
-    fileprivate weak var peripheral: CBPeripheral?
+    fileprivate(set) weak var peripheral: CBPeripheral?
     fileprivate(set) var registeredServiceModels: [ServiceModel]
     
     // MARK: Initializers
