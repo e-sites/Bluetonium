@@ -2,6 +2,8 @@
 
 Bluetonium is a Swift Library that makes it easy to communicate with Bluetooth devices.
 
+[![forthebadge](http://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/fo-real.svg)](http://forthebadge.com)
+
 [![Build Status](https://travis-ci.org/e-sites/Bluetonium.svg)](https://travis-ci.org/e-sites/Bluetonium)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Bluetonium.svg)](https://img.shields.io/cocoapods/v/Bluetonium.svg)
 [![codecov](https://codecov.io/gh/e-sites/Bluetonium/branch/master/graph/badge.svg)](https://codecov.io/gh/e-sites/Bluetonium)
