@@ -94,6 +94,20 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
             serviceModel.resetService()
         }
     }
+
+    /**
+     Enables or disables notify messages for a specific characteristic / servicemodel
+
+     - parameter serviceModel: The `ServiceModel`
+     - parameter enabled: `Bool`
+     - parameter characteristicUUID: The characteristic uuid
+     */
+    func setNotify(serviceModel: ServiceModel, enabled: Bool, characteristicUUID: String) {
+        guard let characteristic = characteristic(characteristicUUID, serviceUUID: serviceModel.serviceUUID) else {
+            return
+        }
+        peripheral?.setNotifyValue(enabled, for: characteristic)
+    }
     
     // MARK: Private functions
     
@@ -159,7 +173,7 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
             peripheral.discoverCharacteristics(characteristics, for: service)
         }
     }
-    
+
     @objc func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard let serviceModel = serviceModel(withUUID: service.uuid.uuidString), let characteristics = service.characteristics else {
             return
@@ -169,6 +183,8 @@ class ServiceModelManager: NSObject, CBPeripheralDelegate {
             // Check with correct ServiceModel if it should register for value changes.
             if serviceModel.registerNotifyForCharacteristic(withUUID: characteristic.uuid.uuidString) {
                 peripheral.setNotifyValue(true, for: characteristic)
+            } else {
+                peripheral.setNotifyValue(false, for: characteristic)
             }
             
             // Notify ServiceModel the characteristic did become available.

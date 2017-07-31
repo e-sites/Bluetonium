@@ -138,6 +138,16 @@ open class ServiceModel: Equatable {
     open func registerNotifyForCharacteristic(withUUID uuid: String) -> Bool {
         return false
     }
+
+    /**
+     Register or unregisters for notify for a specific characteristic
+
+     - parameter enabled: Bool
+     - parameter characteristicUUID: Characteristic UUID
+    */
+    public func setNotify(enabled: Bool, forUUID characteristicUUID: String) {
+        serviceModelManager?.setNotify(serviceModel: self, enabled: enabled, characteristicUUID: characteristicUUID)
+    }
     
     /**
      Called when a characteristic became available.

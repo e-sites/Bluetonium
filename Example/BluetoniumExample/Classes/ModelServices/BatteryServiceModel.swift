@@ -31,11 +31,7 @@ class BatteryServiceModel: ServiceModel {
     override func mapping(_ map: Map) {
         batteryLevel <- map[BatteryServiceModelConstants.batteryLevelUUID]
     }
-    
-    override func registerNotifyForCharacteristic(withUUID uuid: String) -> Bool {
-        return true
-    }
-    
+        
     override func characteristicBecameAvailable(withUUID uuid: String) {
         readValue(withUUID: uuid)
     }
