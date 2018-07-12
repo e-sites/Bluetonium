@@ -1,5 +1,9 @@
 ![Bluetonium: Bluetooth library in Swift](https://raw.githubusercontent.com/e-sites/Bluetonium/assets/Bluetonium.png)
 
+Bluetonium is part of the **[E-sites iOS Suite](https://github.com/e-sites/iOS-Suite)**.
+
+---
+
 Bluetonium is a Swift Library that makes it easy to communicate with Bluetooth devices.
 
 [![forthebadge](http://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/fo-real.svg)](http://forthebadge.com)
