@@ -99,7 +99,7 @@ class BatteryServiceModel: ServiceModel {
 }
 ```
 
-Register a `ServiceModel` subclass. Make sure you do this before the device is actualy connected.
+Register a `ServiceModel` subclass. Make sure you do this before the device is actually connected.
 
 ```swift
 let batteryServiceModel = BatteryServiceModel()
